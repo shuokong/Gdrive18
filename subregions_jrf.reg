@@ -1,0 +1,7 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+image
+box(1572.1396,3813.1331,2013.9849,933.11996,359.9945) # color=blue text={North (OMC 2/3/NGC1977)} tag={My Subregions} tag={My Subregions}
+box(1564.5809,2263.0533,2019.6799,1290.15,359.9945) # color=blue text={South (OMC 4/5)} tag={My Subregions} tag={My Subregions}
+box(969.0683,797.62817,2090.1899,1640.6549,359.9945) # color=blue text={L1641N/NGC1999} tag={My Subregions} tag={My Subregions}
+box(1574.1946,3128.6144,2020.4999,441.00448,359.9945) # color=blue text={Central (OMC 1)} tag={My Subregions}
