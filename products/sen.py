@@ -3,7 +3,7 @@ from astropy.io import fits
 import numpy as np
 from scipy import signal
 
-hdu1 = fits.open('mask_c18o_pix_2_Tmb.fits')[0]
+hdu1 = fits.open('mask_imfit_c18o_pix_2_Tmb.fits')[0]
 hdu2 = fits.open('combined_scalefactor_c18o.sen.fits')[0]
 #hdu1.header['BUNIT'] = 'K'
 #print hdu1.header
