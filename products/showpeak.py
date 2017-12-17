@@ -31,10 +31,10 @@ if peak == 1:
     ff.colorbar.set_pad(0.5)
     ff.set_tick_labels_font(size='large')
     ff.set_axis_labels_font(size='large')
-    #ff.add_scalebar(0.0115) # degree for 1pc at 5kpc
-    #ff.scalebar.set_corner('top right') 
-    #ff.scalebar.set_label('1 pc (41")') 
-    #ff.scalebar.set_font_size(16) 
+    ff.add_scalebar(0.286) # degree for 2pc at 400 pc
+    ff.scalebar.set_corner('top left')
+    ff.scalebar.set_label('2 pc')
+    ff.scalebar.set_font_size(14)
     #ff.tick_labels.set_xformat('dd')
     #ff.tick_labels.set_yformat('dd')
     pdfname = 'peak_c18o_pix_2_Tmb.pdf'
