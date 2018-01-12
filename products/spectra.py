@@ -41,7 +41,7 @@ def gaussian_fit(xdata,ydata,yerr,pinit): # xdata,ydata,yerr n-element arrays, p
      
     return mu,muErr,sigma,sigmaErr
 
-regionfiles = [['north_mask_c18o_pix_2_Tmb.fits','north','north'],['central_mask_c18o_pix_2_Tmb.fits','central','central'],['south_mask_c18o_pix_2_Tmb.fits','south','south'],['furthersouth_mask_c18o_pix_2_Tmb.fits','furthersouth','further south']]
+regionfiles = [['north_mask_c18o_pix_2_Tmb.fits','north','north'],['central_mask_c18o_pix_2_Tmb.fits','central','central'],['south_mask_c18o_pix_2_Tmb.fits','south','south'],['furthersouth_mask_c18o_pix_2_Tmb.fits','furthersouth','L1641']]
 
 p=plt.figure(figsize=(6,18))
 plt.subplots_adjust(top=0.98,bottom=0.03,left=0.11,right=0.97)
@@ -56,6 +56,7 @@ for nn,ii in enumerate(regionfiles):
     print coldensdata.shape
     n1,n2,n3 = coldensdata.shape
     spectrum = np.nanmean(coldensdata,axis=(1,2))
+    peakind = np.argmax(spectrum)
     print spectrum.shape
     velocity = [(crval3+cdelt3*((i+1)-crpix3))/1.e3 for i in range(n1)]
     #sys.exit()
@@ -76,6 +77,9 @@ for nn,ii in enumerate(regionfiles):
     #plt.xscale('log') 
     #plt.yscale('log') 
     plt.xlim(0,20.) 
+    ax.set_ylim(-0.1,1.2)
+    ax.vlines(velocity[peakind],-0.1,max(spectrum),linestyle='dashed')
+    ax.text(velocity[peakind]+0.2, 0, '%.1f' % velocity[peakind],horizontalalignment='left',verticalalignment='center',fontsize=12)
 
 pdfname = 'averspec18.pdf'
 os.system('rm '+pdfname)

@@ -18,12 +18,14 @@ ff.recenter(xcenter,ycenter,width=wid,height=hei)
 ff.set_theme('publication')
 #ff.set_system_latex(True)
 maxcolor = np.nanmax(hdu1.data)
-ff.show_colorscale(cmap='Purples', vmin=0, vmax=3, stretch='linear')
+ff.show_colorscale(cmap='Purples', vmin=0, vmax=2, stretch='linear')
 ff.show_regions('olay2.reg')
 #ff.show_contour(mask_hdu, levels=1, colors='yellow', linewidths=0.1)
 ff.add_colorbar() 
 ff.colorbar.set_font(size=12)
 ff.colorbar.set_pad(0.5)
+ff.colorbar.set_axis_label_text('km s$^{-1}$')
+ff.colorbar.set_font(size=12)
 ff.set_tick_labels_font(size=12)
 ff.set_axis_labels_font(size=12)
 ff.add_scalebar(0.286,corner='top left',pad=10) # degree for 2pc at 400 pc
@@ -35,6 +37,7 @@ bmaj = hdu1.header['BMAJ']
 bmin = hdu1.header['BMIN']
 beamangle = hdu1.header['BPA']
 ff.show_ellipses(beamx,beamy,bmaj,bmin,angle=beamangle-90,facecolor='black',edgecolor='black')
+ff.add_label(beamx+0.25,beamy+0.15,'2nd-moment C$^{18}$O(1-0)',fontsize=12)
 #ff.tick_labels.set_xformat('dd')
 #ff.tick_labels.set_yformat('dd')
 pdfname = 'mom2_c18o_pix_2_Tmb.pdf'
