@@ -35,17 +35,20 @@ def main():
     
     mapa_maker = 'miriad'
     
-    beam_param = []
+    beam_param = [8.,8.,0]
     
     center_coord = [83.806,-5.368]
     
     
-    pvmap_orion = pv.pos_vel(name_cube,name_out,ra_list,dec_list,vel_range,vel_rms,mapa_maker,beam_param,center_coord)
+    #pvmap_orion = pv.pos_vel(name_cube,name_out,ra_list,dec_list,vel_range,vel_rms,mapa_maker,beam_param,center_coord)
     
     fig=plt.figure()
     gc=aplpy.FITSFigure(name_out,dimensions=[0,1],figure=fig,hdu=0)
     gc.show_colorscale(aspect='auto')
     
+    gc.ticks.set_xspacing(21.)
+    gc.ticks.set_minor_frequency(7)
+    gc.axis_labels.set_ytext('Velocity (km/s)')
     gc.ticks.show()
     gc.ticks.set_color('black')
     gc.ticks.set_length(10)
