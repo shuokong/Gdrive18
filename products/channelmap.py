@@ -9,7 +9,7 @@ import pyfits
 
 fitsfiles={'color':{'fname':'chan1_mask_imfit_c18o_pix_2_Tmb.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
         'template':{'fname':'chan1_mask_imfit_c18o_pix_2_Tmb.fits'},
-         'channel':{'fname':'han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':0,'maxcolor':15},
+         'channel':{'fname':'mask_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':0,'maxcolor':15},
            }
 
 os.system('cp '+fitsfiles['template']['fname']+' '+'template_'+fitsfiles['template']['fname'])
@@ -32,6 +32,8 @@ ycenter=0.0675
 
 firstchannelstart=34
 lastchannel=45
+firstchannelstart=0
+lastchannel=72
 
 for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
 
@@ -70,7 +72,8 @@ for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
             os.system('rm template_channel.fits')
     ax1 = fig.add_axes([0.92,0.7,0.01,0.9/ypanels])
     cmap = mpl.cm.afmhot
-    norm = mpl.colors.Normalize(vmin=mincolor, vmax=maxcolor)
+#    norm = mpl.colors.Normalize(vmin=mincolor, vmax=maxcolor)
+    norm = mpl.colors.PowerNorm(gamma=0.5,vmin=mincolor, vmax=maxcolor)
     cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical')#,ticks=colorticks)
     
     # close and save file
