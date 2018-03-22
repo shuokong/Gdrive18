@@ -86,7 +86,7 @@ plt.subplots_adjust(top=0.97,bottom=0.13,left=0.18,right=0.85)
 ax=p.add_subplot(1,1,1)
 plt.xscale('linear')
 plt.yscale('linear')
-plt.scatter(merge3avv,merge3inn,s=10,c=merge3tee,marker="o",edgecolors='none')
+plt.scatter(merge3avv,merge3inn,s=5,c=merge3tee,marker="o",edgecolors='none')
 plt.xlim(lowav,highav)
 plt.ylim(lowi,highi)
 ### linear fit
@@ -105,13 +105,13 @@ cbar=plt.colorbar(cax = axColor, orientation="vertical")
 cbar.ax.get_yaxis().labelpad = 20
 cbar.set_label(r'$\rm T_{ex}~(K)$', rotation=270)
 ax.set_xlabel(r'$\rm A_V~(mag)$')
-ax.set_ylabel(r'$\rm W_{C^{18}O(2-1)}~(K~km~s^{-1})$')
+ax.set_ylabel(r'$\rm W_{C^{18}O(1-0)}~(K~km~s^{-1})$')
 #plt.tick_params(axis='both', which='major', labelsize=28)
 
 os.system('rm color_c18o_NH_tex.pdf')
 plt.savefig('color_c18o_NH_tex.pdf',dpi=400)
 os.system('open color_c18o_NH_tex.pdf')
-os.system('cp color_c18o_NH_tex.pdf ~/GoogleDrive/imagesCARMAOrion/')
+os.system('cp color_c18o_NH_tex.pdf ~/GoogleDrive/imagesSFE/')
 #plt.show()
 
 
