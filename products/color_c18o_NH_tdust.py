@@ -20,9 +20,9 @@ highi=20
 standardwav=3.3
 
 print 'reading fits files'
-hdulist1=pyfits.open('lombardi_colorT_on_c18o_header.fits') #for Tex
-hdulist2=pyfits.open('pixel6_convol18_mom0_c18o_pix_2_Tmb.fits') #for mom0
-hdulist3=pyfits.open('stutz_on_c18o_header.fits') #for newNICEST38.fits or newNICER38.fits
+hdulist1=pyfits.open('lombardi_colorT_on_Stutz_header.fits') #for Tdust
+hdulist2=pyfits.open('regrid_Stutz_convol18_mom0_c18o_pix_2_Tmb.fits') #for mom0
+hdulist3=pyfits.open('carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits') #for newNICEST38.fits or newNICER38.fits
 
 scidata1=hdulist1[0].data
 scidata2=hdulist2[0].data
