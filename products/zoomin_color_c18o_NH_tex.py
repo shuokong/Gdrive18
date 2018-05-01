@@ -6,6 +6,7 @@ from matplotlib import rc
 rc('text', usetex=True)
 font = {'weight' : 'normal','size':22,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
+#from tex import tex
 from scipy import stats
 import math
 import pyfits
@@ -14,13 +15,14 @@ rms=0.16
 lowrms=3
 highrms=5
 lowav=0
-highav=800*2.*9.4e20
+highav=200*2.*9.4e20
+avthres=7.5
 lowi=0
-highi=35
+highi=20
 standardwav=3.3
 
 print 'reading fits files'
-hdulist1=pyfits.open('lombardi_colorT_on_Stutz_header.fits') #for Tdust
+hdulist1=pyfits.open('../../12co/products/regrid_Stutz_convol18_tex12.fits') #for Tex
 hdulist2=pyfits.open('regrid_Stutz_convol18_mom0_c18o_pix_2_Tmb.fits') #for mom0
 hdulist3=pyfits.open('carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits') #for newNICEST38.fits or newNICER38.fits
 
@@ -75,8 +77,6 @@ for k in [0]:
 merge3avv=np.array(merge3av)
 merge3inn=np.array(merge3in)
 merge3tee=np.array(merge3te)
-#temperature_filter = (merge3tee>50)
-#merge3tee[temperature_filter] = 50
 standard38=np.array([lowav,highav])
 standardw=standard38*standardwav
 
@@ -95,7 +95,7 @@ plt.ylim(lowi,highi)
 #plt.plot(merge3avv[linarray[:]],linresul[0]*merge3avv[linarray[:]]+linresul[1],'k-',label='fitted slope: '+str("{0:.1f}".format(linresul[0]))+', r-value: '+str("{0:.2f}".format(linresul[2])),rasterized=True)
 ##
 #plt.plot(standard38,standardw,'r-')
-#plt.text(0.05, 0.95,'13',horizontalalignment='left',verticalalignment='top',transform = ax.transAxes)
+plt.text(0.05, 0.95,'(b)',horizontalalignment='left',verticalalignment='top',transform = ax.transAxes)
 #plt.legend(loc=1,frameon=False,prop={'size':16})
 #plt.tick_params(axis='both', which='major', labelsize=28)
 box = ax.get_position()
@@ -103,7 +103,7 @@ ax.set_position([box.x0*1., box.y0, box.width, box.height])
 axColor = plt.axes([box.x0*1.005 + box.width * 1.005, box.y0, 0.015, box.height])
 cbar=plt.colorbar(cax = axColor, orientation="vertical")
 cbar.ax.get_yaxis().labelpad = 20
-cbar.set_label(r'$\rm T_{dust}~(K)$', rotation=270)
+cbar.set_label(r'$\rm T_{ex}~(K)$', rotation=270)
 ax.set_xlabel(r'$\rm N_H~(cm^{-2})$')
 ax.set_ylabel(r'$\rm W_{C^{18}O(1-0)}~(K~km~s^{-1})$')
 #plt.tick_params(axis='both', which='major', labelsize=28)
@@ -117,10 +117,10 @@ ax2.set_xbound(ax.get_xbound())
 ax2.set_xticklabels(ax2Xs)
 ax2.set_xlabel(r'$\rm A_V~(mag)$')
 
-os.system('rm color_c18o_NH_tdust.pdf')
-plt.savefig('color_c18o_NH_tdust.pdf',dpi=400)
-os.system('open color_c18o_NH_tdust.pdf')
-os.system('cp color_c18o_NH_tdust.pdf ~/GoogleDrive/imagesSFE/')
+os.system('rm zoomin_color_c18o_NH_tex.pdf')
+plt.savefig('zoomin_color_c18o_NH_tex.pdf',dpi=400)
+os.system('open zoomin_color_c18o_NH_tex.pdf')
+os.system('cp zoomin_color_c18o_NH_tex.pdf ~/GoogleDrive/imagesSFE/')
 #plt.show()
 
 

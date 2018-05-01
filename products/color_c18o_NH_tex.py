@@ -15,10 +15,12 @@ rms=0.16
 lowrms=3
 highrms=5
 lowav=0
-highav=200
+highav=800*2.*9.4e20
+zoomhighav=200*2.*9.4e20
 avthres=7.5
 lowi=0
-highi=20
+highi=35
+zoomhighi=20
 standardwav=3.3
 
 print 'reading fits files'
@@ -34,9 +36,9 @@ print 'scidata1.shape', scidata1.shape
 print 'scidata2.shape', scidata2.shape
 print 'scidata3.shape', scidata3.shape
 
-tex=scidata1[0,:,:]
+tex=scidata1[:,:]
 mom0=scidata2[0,:,:]
-new38=scidata3[:,:]/9.4e20/2.
+new38=scidata3[:,:]#/9.4e20/2.
 
 xy=np.loadtxt('boxes.txt',dtype='int',delimiter=',') #for boxes.txt
 x1=xy[:,0]
@@ -81,21 +83,23 @@ standard38=np.array([lowav,highav])
 standardw=standard38*standardwav
 
 p=plt.figure(figsize=(8,6))
-plt.subplots_adjust(top=0.97,bottom=0.13,left=0.18,right=0.85)
+plt.subplots_adjust(top=0.87,bottom=0.13,left=0.18,right=0.85)
 
 ax=p.add_subplot(1,1,1)
 plt.xscale('linear')
 plt.yscale('linear')
-plt.scatter(merge3avv,merge3inn,s=5,c=merge3tee,marker="o",edgecolors='none')
+plt.scatter(merge3avv,merge3inn,s=5,c=merge3tee,marker="o",edgecolors='none',rasterized=True)
 plt.xlim(lowav,highav)
 plt.ylim(lowi,highi)
+plt.vlines(zoomhighav,lowi,zoomhighi,linestyles='dashed')
+plt.hlines(zoomhighi,lowav,zoomhighav,linestyles='dashed')
 ### linear fit
 #linarray=(merge3avv[:]<highav) & (merge3avv[:]>lowav+2) & (merge3inn>rms*lowrms)
 #linresul=stats.linregress(merge3avv[linarray[:]],merge3inn[linarray[:]])
 #plt.plot(merge3avv[linarray[:]],linresul[0]*merge3avv[linarray[:]]+linresul[1],'k-',label='fitted slope: '+str("{0:.1f}".format(linresul[0]))+', r-value: '+str("{0:.2f}".format(linresul[2])),rasterized=True)
 ##
 #plt.plot(standard38,standardw,'r-')
-#plt.text(0.05, 0.95,'13',horizontalalignment='left',verticalalignment='top',transform = ax.transAxes)
+plt.text(0.05, 0.95,'(a)',horizontalalignment='left',verticalalignment='top',transform = ax.transAxes)
 #plt.legend(loc=1,frameon=False,prop={'size':16})
 #plt.tick_params(axis='both', which='major', labelsize=28)
 box = ax.get_position()
@@ -104,9 +108,18 @@ axColor = plt.axes([box.x0*1.005 + box.width * 1.005, box.y0, 0.015, box.height]
 cbar=plt.colorbar(cax = axColor, orientation="vertical")
 cbar.ax.get_yaxis().labelpad = 20
 cbar.set_label(r'$\rm T_{ex}~(K)$', rotation=270)
-ax.set_xlabel(r'$\rm A_V~(mag)$')
+ax.set_xlabel(r'$\rm N_H~(cm^{-2})$')
 ax.set_ylabel(r'$\rm W_{C^{18}O(1-0)}~(K~km~s^{-1})$')
 #plt.tick_params(axis='both', which='major', labelsize=28)
+ax2=ax.twiny()
+axXs = ax.get_xticks()
+ax2Xs = []
+for X in axXs:
+    ax2Xs.append(r"$\rm {0:.1f}$".format(X/2./9.4e20))
+ax2.set_xticks(axXs)
+ax2.set_xbound(ax.get_xbound())
+ax2.set_xticklabels(ax2Xs)
+ax2.set_xlabel(r'$\rm A_V~(mag)$')
 
 os.system('rm color_c18o_NH_tex.pdf')
 plt.savefig('color_c18o_NH_tex.pdf',dpi=400)
