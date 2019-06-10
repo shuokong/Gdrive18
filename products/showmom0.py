@@ -4,10 +4,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from astropy.io import fits
 
-mom0 = 1
+mom0 = 0
+mom0mask = 1
 histogram = 0
 
 hdu1 = fits.open('mom0_c18o_pix_2_Tmb.fits')[0]
+
+if mom0mask == 1:
+    hdu1.data[~np.isnan(hdu1.data)] = 1
+    hdu1.data[np.isnan(hdu1.data)] = 0
+    fits.writeto('18mom0mask.fits', hdu1.data, hdu1.header, clobber=True)
 
 if mom0 == 1:
     xcenter=84
