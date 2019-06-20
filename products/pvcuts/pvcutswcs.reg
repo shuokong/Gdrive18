@@ -1,0 +1,29 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk5
+box(84.05873333,-6.188137777,200.000",20.000",315)
+circle(84.05544799,-6.183525007,10.000") # color=red font="helvetica 15 normal roman" text={1}
+circle(84.05925833,-6.187615278,10.000") # color=red font="helvetica 15 normal roman" text={2}
+circle(84.06306874,-6.191705526,10.000") # color=red font="helvetica 15 normal roman" text={3}
+circle(84.06670481,-6.195913451,10.000") # color=red font="helvetica 15 normal roman" text={4}
+circle(84.07082425,-6.199739063,10.000") # color=red font="helvetica 15 normal roman" text={5}
+circle(84.07485426,-6.203653685,10.000") # color=red font="helvetica 15 normal roman" text={6}
+circle(84.07861586,-6.207835373,10.000") # color=red font="helvetica 15 normal roman" text={7}
+circle(84.08246698,-6.211839012,10.000") # color=red font="helvetica 15 normal roman" text={8}
+circle(84.08613918,-6.216020686,10.000") # color=red font="helvetica 15 normal roman" text={9}
+circle(84.08972196,-6.220291381,10.000") # color=red font="helvetica 15 normal roman" text={10}
+circle(84.09339427,-6.224473014,10.000") # color=red font="helvetica 15 normal roman" text={11}
+circle(84.09733512,-6.228387523,10.000") # color=red font="helvetica 15 normal roman" text={12}
+circle(84.10127608,-6.232391004,10.000") # color=red font="helvetica 15 normal roman" text={13}
+circle(84.10512756,-6.236394497,10.000") # color=red font="helvetica 15 normal roman" text={14}
+circle(84.1089791,-6.240397965,10.000") # color=red font="helvetica 15 normal roman" text={15}
+circle(84.11292024,-6.244401371,10.000") # color=red font="helvetica 15 normal roman" text={16}
+circle(84.1167719,-6.248404791,10.000") # color=red font="helvetica 15 normal roman" text={17}
+circle(84.12080265,-6.252319112,10.000") # color=red font="helvetica 15 normal roman" text={18}
+circle(84.12483342,-6.256144398,10.000") # color=red font="helvetica 15 normal roman" text={19}
+circle(84.12868528,-6.260147749,10.000") # color=red font="helvetica 15 normal roman" text={20}
+circle(84.13244774,-6.264329111,10.000") # color=red font="helvetica 15 normal roman" text={21}
+circle(84.13647874,-6.26824333,10.000") # color=red font="helvetica 15 normal roman" text={22}
+circle(84.14033083,-6.272335606,10.000") # color=red font="helvetica 15 normal roman" text={23}
+circle(84.14409348,-6.276516898,10.000") # color=red font="helvetica 15 normal roman" text={24}
+circle(84.14785616,-6.28060917,10.000") # color=red font="helvetica 15 normal roman" text={25}
