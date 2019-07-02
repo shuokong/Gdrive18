@@ -5,33 +5,33 @@ import matplotlib.pyplot as plt
 from astropy.io import fits
 from matplotlib import rc
 rc('text', usetex=True)
-font = {'weight' : 'normal','size':20,'family':'sans-serif','sans-serif':['Helvetica']}
+font = {'weight' : 'normal','size':30,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
 fitsfiles={'panel1':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}},
+                     'color':{'fname':r'Fil1641NE_hpacs_70.fits','hdulistnum':0,'title':r'$\rm 70~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.05,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
            'panel2':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}},
+                     'color':{'fname':r'Fil1641NE_hpacs_100.fits','hdulistnum':0,'title':r'$\rm 100~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.035,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
            'panel3':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}},
+                     'color':{'fname':r'Fil1641NE_feathered_160.fits','hdulistnum':0,'title':r'$\rm 160~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.028,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
            'panel4':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}},
+                     'color':{'fname':r'Fil1641NE_feathered_250.fits','hdulistnum':0,'title':r'$\rm 250~\mu m$','colorscale':'gist_heat','mincolor':0.0014,'maxcolor':0.030,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
            'panel5':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}},
+                     'color':{'fname':r'Fil1641NE_feathered_350.fits','hdulistnum':0,'title':r'$\rm 350~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.018,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
            'panel6':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}},
+                     'color':{'fname':r'Fil1641NE_jcmt_450.fits','hdulistnum':0,'title':r'$\rm 450~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.02,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
            'panel7':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}},
+                     'color':{'fname':r'Fil1641NE_feathered_500.fits','hdulistnum':0,'title':r'$\rm 500~\mu m$','colorscale':'gist_heat','mincolor':0.0003,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
            'panel8':{
-                     'color':{'fname':'../../../OrionAdust/herschelAmelia/carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt',}}
+                     'color':{'fname':r'Fil1641NE_jcmt_850.fits','hdulistnum':0,'title':r'$\rm 850~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}}
            }
 
 lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-xcenter = 84.11926799
-ycenter = -6.302519164
-wid = 0.5391003
-hei = 0.4449478
+xcenter = 84.16327978
+ycenter = -6.301987814
+wid = 0.3545865
+hei = 0.3501908
 xpanels = 2
 ypanels = 4
 fig=plt.figure(figsize=(3*xpanels*1.1*(wid/(wid+hei))*10.,3*ypanels/1.1*(hei/(wid+hei))*10.))
@@ -40,21 +40,24 @@ for j in range(0,ypanels):
     for i in range(0,xpanels):
         panelnum = i + 1 + j * xpanels
         subpos=[0.1+0.8/xpanels*i,0.1+0.9/ypanels*(ypanels-1-j),0.8/xpanels/1.01,0.9/ypanels/1.01]
-        prihdu1 = fits.open(fitsfiles['panel'+str(panelnum)]['color']['fname'])[0] 
+        print 'opening file',fitsfiles['panel'+str(panelnum)]['color']['fname']
+        prihdu1 = fits.open(fitsfiles['panel'+str(panelnum)]['color']['fname'])[fitsfiles['panel'+str(panelnum)]['color']['hdulistnum']] 
+        datamean = np.nanmean(prihdu1.data)
         ff = aplpy.FITSFigure(prihdu1,figure=fig,subplot=subpos)
         ff.recenter(xcenter,ycenter,width=wid,height=hei) 
         ff.set_theme('publication')
         #ff.set_system_latex(True)
         if fitsfiles['panel'+str(panelnum)]['color']['mincolor'] == None:
-            print 'setting color range to data min max'
-            mincolor = np.nanmin(prihdu1.data)
-            maxcolor = np.nanmax(prihdu1.data)
+            print 'setting color range to user input pmin pmax'
+            pmincolor = fitsfiles['panel'+str(panelnum)]['color']['pmincolor']
+            pmaxcolor = fitsfiles['panel'+str(panelnum)]['color']['pmaxcolor']
+            ff.show_colorscale(cmap=fitsfiles['panel'+str(panelnum)]['color']['colorscale'], vmin=pmincolor/100.*datamean, vmax=pmaxcolor/100.*datamean, stretch=fitsfiles['panel'+str(panelnum)]['color']['stretch'])
         else:
             print 'setting color range to user input min max'
             mincolor = fitsfiles['panel'+str(panelnum)]['color']['mincolor']
             maxcolor = fitsfiles['panel'+str(panelnum)]['color']['maxcolor']
-        ff.show_colorscale(cmap=fitsfiles['panel'+str(panelnum)]['color']['colorscale'], vmin=mincolor, vmax=maxcolor, stretch=fitsfiles['panel'+str(panelnum)]['color']['stretch'])
-        ff.show_regions('zoombox.reg')
+            ff.show_colorscale(cmap=fitsfiles['panel'+str(panelnum)]['color']['colorscale'], vmin=mincolor, vmax=maxcolor, stretch=fitsfiles['panel'+str(panelnum)]['color']['stretch'])
+        #ff.show_regions('zoombox.reg')
         #ff.show_regions('lanecores.reg')
         ff.axis_labels.set_xtext(r'$\rm RA~(J2000)$')
         ff.axis_labels.set_ytext(r'$\rm Dec~(J2000)$')
@@ -67,6 +70,7 @@ for j in range(0,ypanels):
         ff.add_scalebar(0.143,corner='top left',pad=1) # degree for 1 pc at 400 pc
         ff.scalebar.set_label('1 pc')
         ff.scalebar.set_color('white')
+        ff.add_label(xcenter - 0.9 * wid / 2.,ycenter + 0.9 * hei / 2.,fitsfiles['panel'+str(panelnum)]['color']['title'],color='white',size=30)
         if fitsfiles['panel'+str(panelnum)]['color']['bmaj'] is not None:
             print 'plotting beam'
             colorbeamx = xcenter - 0.8 * wid / 2.
