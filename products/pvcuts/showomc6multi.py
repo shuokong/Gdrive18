@@ -2,38 +2,41 @@ import aplpy
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 from astropy.io import fits
 from matplotlib import rc
 rc('text', usetex=True)
-font = {'weight' : 'normal','size':30,'family':'sans-serif','sans-serif':['Helvetica']}
+font = {'weight' : 'normal','size':50,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
 fitsfiles={'panel1':{
-                     'color':{'fname':r'Fil1641NE_hpacs_70.fits','hdulistnum':0,'title':r'$\rm 70~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.05,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
+                     'color':{'fname':r'Fil1641NE_hpacs_70.fits','hdulistnum':0,'title':r'$\rm 70~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.05,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
            'panel2':{
-                     'color':{'fname':r'Fil1641NE_hpacs_100.fits','hdulistnum':0,'title':r'$\rm 100~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.035,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
+                     'color':{'fname':r'Fil1641NE_hpacs_100.fits','hdulistnum':0,'title':r'$\rm 100~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.035,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
            'panel3':{
-                     'color':{'fname':r'Fil1641NE_feathered_160.fits','hdulistnum':0,'title':r'$\rm 160~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.028,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
+                     'color':{'fname':r'Fil1641NE_feathered_160.fits','hdulistnum':0,'title':r'$\rm 160~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.028,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
            'panel4':{
-                     'color':{'fname':r'Fil1641NE_feathered_250.fits','hdulistnum':0,'title':r'$\rm 250~\mu m$','colorscale':'gist_heat','mincolor':0.0014,'maxcolor':0.030,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
+                     'color':{'fname':r'Fil1641NE_feathered_250.fits','hdulistnum':0,'title':r'$\rm 250~\mu m$','colorscale':'gist_heat','mincolor':0.0014,'maxcolor':0.030,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
            'panel5':{
-                     'color':{'fname':r'Fil1641NE_feathered_350.fits','hdulistnum':0,'title':r'$\rm 350~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.018,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
+                     'color':{'fname':r'Fil1641NE_feathered_350.fits','hdulistnum':0,'title':r'$\rm 350~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.018,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
            'panel6':{
-                     'color':{'fname':r'Fil1641NE_jcmt_450.fits','hdulistnum':0,'title':r'$\rm 450~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.02,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
+                     'color':{'fname':r'Fil1641NE_jcmt_450.fits','hdulistnum':0,'title':r'$\rm 450~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.02,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
            'panel7':{
-                     'color':{'fname':r'Fil1641NE_feathered_500.fits','hdulistnum':0,'title':r'$\rm 500~\mu m$','colorscale':'gist_heat','mincolor':0.0003,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}},
+                     'color':{'fname':r'Fil1641NE_feathered_500.fits','hdulistnum':0,'title':r'$\rm 500~\mu m$','colorscale':'gist_heat','mincolor':0.0003,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
            'panel8':{
-                     'color':{'fname':r'Fil1641NE_jcmt_850.fits','hdulistnum':0,'title':r'$\rm 850~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear',}}
+                     'color':{'fname':r'Fil1641NE_jcmt_850.fits','hdulistnum':0,'title':r'$\rm 850~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84.16327978,'ycenter':-6.301987814,'wid':0.4,'hei':0.4}},
+           'panel9':{
+                     'color':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','hdulistnum':0,'title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84,'ycenter':-6,'wid':1.5,'hei':2.4}}
            }
 
 lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 xcenter = 84.16327978
 ycenter = -6.301987814
-wid = 0.3545865
-hei = 0.3501908
-xpanels = 2
-ypanels = 4
+wid = 0.4
+hei = 0.4
+xpanels = 3
+ypanels = 3
 fig=plt.figure(figsize=(3*xpanels*1.1*(wid/(wid+hei))*10.,3*ypanels/1.1*(hei/(wid+hei))*10.))
 pdfname = 'omc6multi.pdf'
 for j in range(0,ypanels):
@@ -44,6 +47,10 @@ for j in range(0,ypanels):
         prihdu1 = fits.open(fitsfiles['panel'+str(panelnum)]['color']['fname'])[fitsfiles['panel'+str(panelnum)]['color']['hdulistnum']] 
         datamean = np.nanmean(prihdu1.data)
         ff = aplpy.FITSFigure(prihdu1,figure=fig,subplot=subpos)
+        xcenter = fitsfiles['panel'+str(panelnum)]['color']['xcenter']
+        ycenter = fitsfiles['panel'+str(panelnum)]['color']['ycenter']
+        wid = fitsfiles['panel'+str(panelnum)]['color']['wid']
+        hei = fitsfiles['panel'+str(panelnum)]['color']['hei']
         ff.recenter(xcenter,ycenter,width=wid,height=hei) 
         ff.set_theme('publication')
         #ff.set_system_latex(True)
@@ -57,20 +64,30 @@ for j in range(0,ypanels):
             mincolor = fitsfiles['panel'+str(panelnum)]['color']['mincolor']
             maxcolor = fitsfiles['panel'+str(panelnum)]['color']['maxcolor']
             ff.show_colorscale(cmap=fitsfiles['panel'+str(panelnum)]['color']['colorscale'], vmin=mincolor, vmax=maxcolor, stretch=fitsfiles['panel'+str(panelnum)]['color']['stretch'])
-        #ff.show_regions('zoombox.reg')
         #ff.show_regions('lanecores.reg')
         ff.axis_labels.set_xtext(r'$\rm RA~(J2000)$')
         ff.axis_labels.set_ytext(r'$\rm Dec~(J2000)$')
         ff.tick_labels.set_xformat('dd.d')
         ff.tick_labels.set_yformat('dd.d')
         ff.ticks.set_color('white')
+        #ff.set_nan_color('black')
         #ff.add_colorbar() 
         #ff.colorbar.set_pad(0.5)
         #ff.colorbar.set_axis_label_text(r'$\rm cm^{-2}$')
-        ff.add_scalebar(0.143,corner='top left',pad=1) # degree for 1 pc at 400 pc
-        ff.scalebar.set_label('1 pc')
-        ff.scalebar.set_color('white')
-        ff.add_label(xcenter - 0.9 * wid / 2.,ycenter + 0.9 * hei / 2.,fitsfiles['panel'+str(panelnum)]['color']['title'],color='white',size=30)
+        ### colorbar for the last panel
+        if panelnum == xpanels*ypanels:
+            ff.show_regions('zoombox.reg')
+#            ff.add_scalebar(0.143,corner='bottom right',pad=1) # degree for 1 pc at 400 pc
+#            ff.scalebar.set_label('1 pc')
+#            ff.scalebar.set_color('white')
+#            ax1 = fig.add_axes([0.9,0.1,0.01,0.3])
+#            cmap = mpl.cm.gist_heat
+#            norm = mpl.colors.Normalize(vmin=1.e21, vmax=1.e23)
+#            colorticks = [0.2e23, 0.4e23, 0.6e23, 0.8e23, 1.0e23]
+#            cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks)
+#            cb1.ax.set_yticklabels(['{:<.1f}'.format(colorticks[ii]/1.e23) for ii in range(len(colorticks))]) # 
+        ff.add_label(xcenter + 0.9 * wid / 2.,ycenter - 0.9 * hei / 2.,fitsfiles['panel'+str(panelnum)]['color']['title'],color='white',horizontalalignment='left')
+        ff.add_label(xcenter - 0.9 * wid / 2.,ycenter + 0.9 * hei / 2.,'('+lletter[panelnum-1]+')',color='white',horizontalalignment='center')
         if fitsfiles['panel'+str(panelnum)]['color']['bmaj'] is not None:
             print 'plotting beam'
             colorbeamx = xcenter - 0.8 * wid / 2.
@@ -87,12 +104,6 @@ for j in range(0,ypanels):
 #            colorbmin = fitsfiles['panel'+str(panelnum)]['contour']['file'+str(k+1)]['bmin']
 #            colorbeamangle = fitsfiles['panel'+str(panelnum)]['contour']['file'+str(k+1)]['pa']
 #            ff.show_ellipses(colorbeamx,colorbeamy,colorbmaj,colorbmin,angle=colorbeamangle-90,facecolor='grey',edgecolor='grey') 
-#            if i == xpanels-1:
-#                ax1 = fig.add_axes([0.9,0.9*1.1-(j+1)*(0.8*1.1/ypanels),0.01,0.8*1.1/ypanels*0.99])
-#                cmap = mpl.cm.rainbow
-#                norm = mpl.colors.Normalize(vmin=mincolor, vmax=maxcolor)
-#                cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks)
-#                cb1.ax.set_yticklabels(['{:<.3f}'.format(colorticks[ii]*2./427.) for ii in range(len(colorticks))]) # N_H = Av * 2.0e21 cm-2, 1g cm-2 corresponds to N_H = 4.27e23 cm-2
         if j != ypanels-1:
             ff.hide_xaxis_label()
             ff.hide_xtick_labels()
