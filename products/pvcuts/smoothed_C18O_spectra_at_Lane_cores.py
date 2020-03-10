@@ -43,7 +43,7 @@ def gaussian_fit(xdata,ydata,yerr,pinit): # xdata,ydata,yerr n-element arrays, p
      
     return mu,muErr,sigma,sigmaErr
 
-imagein = 'convol28_mask_imfit_c18o_pix_2_Tmb.fits'
+imagein = 'convol70_mask_imfit_c18o_pix_2_Tmb.fits'
 hdulist = fits.open(imagein)
 print hdulist[0].data.shape
 #sys.exit()
@@ -53,8 +53,8 @@ header = hdulist[0].header
 crpix3 = header['CRPIX3']
 cdelt3 = header['CDELT3']
 crval3 = header['CRVAL3']
-bmaj = 28. # header['BMAJ']*3600. # in arcsec
-bmin = 28. # header['BMIN']*3600. # in arcsec
+bmaj = 70. # header['BMAJ']*3600. # in arcsec
+bmin = 70. # header['BMIN']*3600. # in arcsec
 bpa = 0. # header['BPA']
 cellsize = 2. # abs(header['CDELT1']*3600.) # in arcsec
 n1,n2,n3 = data.shape
