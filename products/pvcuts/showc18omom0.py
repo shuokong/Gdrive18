@@ -8,23 +8,25 @@ rc('text', usetex=True)
 font = {'weight' : 'normal','size':20,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
-hdu1 = fits.open('../mom0_imsub_mask_imfit_c18o_pix_2_Tmb.fits')[0]
+#hdu1 = fits.open('../mom0_imsub_mask_imfit_c18o_pix_2_Tmb.fits')[0]
+hdu1 = fits.open('../mom0_stick_mask_imfit_c18o_pix_2_Tmb.fits')[0]
 
-xcenter = 84.10142765
-ycenter = -6.23582767
-wid = 0.2634468
-hei = 0.2634468
+zoomxcenter = 84.16327978
+zoomycenter = -6.301987814
+zoomwid = 0.4
+zoomhei = 0.4
 xpanels = 1
 ypanels = 1
-fig=plt.figure(figsize=(3*xpanels*1.1*(wid/(wid+hei))*10.,3*ypanels/1.1*(hei/(wid+hei))*10.))
+fig=plt.figure(figsize=(3*xpanels*1.1*(zoomwid/(zoomwid+zoomhei))*10.,3*ypanels/1.1*(zoomhei/(zoomwid+zoomhei))*10.))
 ff = aplpy.FITSFigure(hdu1, figure=fig)
-ff.recenter(xcenter,ycenter,width=wid,height=hei) 
+ff.recenter(zoomxcenter,zoomycenter,width=zoomwid,height=zoomhei) 
 ff.set_theme('publication')
 #ff.set_system_latex(True)
 maxcolor = np.nanmax(hdu1.data)
 #maxcolor = 100
-ff.show_colorscale(cmap='gray_r', vmin=0, vmax=10, stretch='linear')
-ff.show_regions('pvcuts.reg')
+ff.show_colorscale(cmap='gray_r', vmin=1, vmax=10, stretch='linear')
+ff.show_regions('pvcutswcs_overlay.reg')
+ff.show_regions('stick_two_parts.reg')
 ff.add_colorbar() 
 ff.axis_labels.set_xtext(r'$\rm RA~(J2000)$')
 ff.axis_labels.set_ytext(r'$\rm Dec~(J2000)$')

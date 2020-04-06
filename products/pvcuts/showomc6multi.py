@@ -80,15 +80,19 @@ for j in range(0,ypanels):
             ff.show_regions('stick_two_parts.reg')
         if panelnum == xpanels*ypanels:
             ff.show_rectangles(zoomxcenter,zoomycenter,zoomwid,zoomhei,edgecolor='y',linestyle='dashed',linewidth=3) 
-            ff.add_scalebar(0.286,corner='bottom right',pad=3) # degree for 1 pc at 400 pc
+            ff.add_scalebar(0.286,corner='bottom right',pad=3) # degree for 2 pc at 400 pc
             ff.scalebar.set_label('2 pc')
             ff.scalebar.set_color('white')
-            ax1 = fig.add_axes([0.9,0.1,0.01,0.3])
-            cmap = mpl.cm.gist_heat
-            norm = mpl.colors.Normalize(vmin=1.e21, vmax=1.e23)
-            colorticks = [0.2e23, 0.4e23, 0.6e23, 0.8e23, 1.0e23]
-            cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks)
-            cb1.ax.set_yticklabels(['{:<.1f}'.format(colorticks[ii]/1.e23) for ii in range(len(colorticks))]) # 
+            #ax1 = fig.add_axes([0.9,0.1,0.01,0.3])
+            #cmap = mpl.cm.gist_heat
+            #norm = mpl.colors.Normalize(vmin=1.e21, vmax=1.e23)
+            #colorticks = [0.2e23, 0.4e23, 0.6e23, 0.8e23, 1.0e23]
+            #cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks)
+            #cb1.ax.set_yticklabels(['{:<.1f}'.format(colorticks[ii]/1.e23) for ii in range(len(colorticks))]) # 
+        else: 
+            ff.add_scalebar(0.143,corner='bottom right') # degree for 1 pc at 400 pc
+            ff.scalebar.set_label('1 pc')
+            ff.scalebar.set_color('white')
         ff.add_label(xcenter + 0.9 * wid / 2.,ycenter - 0.9 * hei / 2.,fitsfiles['panel'+str(panelnum)]['color']['title'],color='white',horizontalalignment='left')
         ff.add_label(xcenter - 0.9 * wid / 2.,ycenter + 0.9 * hei / 2.,'('+lletter[panelnum-1]+')',color='white',horizontalalignment='center')
         if fitsfiles['panel'+str(panelnum)]['color']['bmaj'] is not None:

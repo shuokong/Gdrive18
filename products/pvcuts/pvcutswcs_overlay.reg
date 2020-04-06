@@ -1,0 +1,33 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk5
+box(5:36:28.0253,-6:14:54.257,200.000",20.000",315) # color=red width=2 dash=1
+point(5:36:13.3075,-6:11:00.690) # point=cross 15 color=red width=2
+point(5:36:14.2220,-6:11:15.415) # point=cross 15 color=red width=2
+point(5:36:15.1365,-6:11:30.140) # point=cross 15 color=red width=2
+point(5:36:16.0092,-6:11:45.288) # point=cross 15 color=red width=2
+point(5:36:16.9978,-6:11:59.061) # point=cross 15 color=red width=2
+point(5:36:17.9650,-6:12:13.153) # point=cross 15 color=red width=2
+point(5:36:18.8678,-6:12:28.207) # point=cross 15 color=red width=2
+point(5:36:19.7921,-6:12:42.620) # point=cross 15 color=red width=2
+point(5:36:20.6734,-6:12:57.674) # point=cross 15 color=red width=2
+point(5:36:21.5333,-6:13:13.049) # point=cross 15 color=red width=2
+point(5:36:22.4146,-6:13:28.103) # point=cross 15 color=red width=2
+point(5:36:23.3604,-6:13:42.195) # point=cross 15 color=red width=2
+point(5:36:24.3063,-6:13:56.608) # point=cross 15 color=red width=2
+point(5:36:25.2306,-6:14:11.020) # point=cross 15 color=red width=2
+point(5:36:26.1550,-6:14:25.433) # point=cross 15 color=red width=2
+point(5:36:27.1009,-6:14:39.845) # point=cross 15 color=red width=2
+point(5:36:28.0253,-6:14:54.257) # point=cross 15 color=red width=2
+point(5:36:28.9926,-6:15:08.349) # point=cross 15 color=red width=2
+point(5:36:29.9600,-6:15:22.120) # point=cross 15 color=red width=2
+point(5:36:30.8845,-6:15:36.532) # point=cross 15 color=red width=2
+point(5:36:31.7875,-6:15:51.585) # point=cross 15 color=red width=2
+point(5:36:32.7549,-6:16:05.676) # point=cross 15 color=red width=2
+point(5:36:33.6794,-6:16:20.408) # point=cross 15 color=red width=2
+point(5:36:34.5824,-6:16:35.461) # point=cross 15 color=red width=2
+point(5:36:35.4855,-6:16:50.193) # point=cross 15 color=red width=2
+# text(5:36:32.0129,-6:13:13.579) color=red font="helvetica 20 normal roman" text={0}
+# text(5:36:20.8456,-6:15:50.684) color=red font="helvetica 20 normal roman" text={200}
+# text(5:36:13.9448,-6:10:44.978) color=red font="helvetica 20 normal roman" text={1}
+# text(5:36:36.4343,-6:16:35.647) color=red font="helvetica 20 normal roman" text={25}
