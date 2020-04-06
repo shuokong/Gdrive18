@@ -27,8 +27,32 @@ from astropy.utils.data import get_pkg_data_filename
 #array, footprint = reproject_interp(hdu2, hdu1.header)
 #fits.writeto('tex_on_c18o_header.fits', array, hdu1.header, clobber=True)
 
-hdu1 = fits.open('mom0_imsub_mask_imfit_c18o_pix_2_Tmb.fits')[0]
+#hdu1 = fits.open('mom0_imsub_mask_imfit_c18o_pix_2_Tmb.fits')[0]
+#hdu2 = fits.open('threeaxes_carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits')[0]
+#from reproject import reproject_interp
+#array, footprint = reproject_interp(hdu2, hdu1.header)
+#fits.writeto('dustcoldens_on_c18o_header.fits', array, hdu1.header, clobber=True)
+
+hdu1 = fits.open('mom0_stick_mask_imfit_c18o_pix_2_Tmb.fits')[0]
+hdu2 = fits.open('../../13co/products/tex12.fits')[0]
+from reproject import reproject_interp
+array, footprint = reproject_interp(hdu2, hdu1.header)
+fits.writeto('tex_on_stick_header.fits', array, hdu1.header, clobber=True)
+
+hdu1 = fits.open('mom0_stick_mask_imfit_c18o_pix_2_Tmb.fits')[0]
 hdu2 = fits.open('threeaxes_carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits')[0]
 from reproject import reproject_interp
 array, footprint = reproject_interp(hdu2, hdu1.header)
-fits.writeto('dustcoldens_on_c18o_header.fits', array, hdu1.header, clobber=True)
+fits.writeto('dustcoldens_on_stick_header.fits', array, hdu1.header, clobber=True)
+
+hdu1 = fits.open('novel_mom0_stick_mask_imfit_c18o_pix_2_Tmb.fits')[0]
+hdu2 = fits.open('../../OrionAdust/herschelAmelia/OrionA-all_conv500_temp.fits')[0]
+from reproject import reproject_interp
+array, footprint = reproject_interp(hdu2, hdu1.header)
+fits.writeto('dustT_on_stick_header.fits', array, hdu1.header, clobber=True)
+
+hdu1 = fits.open('novel_mom0_stick_mask_imfit_c18o_pix_2_Tmb.fits')[0]
+hdu2 = fits.open('../../AncillaryData/GBT/OrionA_Tkin_DR1_rebase3_flag.fits')[0]
+from reproject import reproject_interp
+array, footprint = reproject_interp(hdu2, hdu1.header)
+fits.writeto('gasT_on_stick_header.fits', array, hdu1.header, clobber=True)

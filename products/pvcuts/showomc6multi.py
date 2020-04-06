@@ -15,23 +15,23 @@ zoomwid = 0.4
 zoomhei = 0.4
 fitsfiles={
            'panel1':{
-                     'color':{'fname':r'Fil1641NE_hpacs_70.fits','hdulistnum':0,'title':r'$\rm 70~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.05,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','hdulistnum':0,'title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84,'ycenter':-6,'wid':1.5,'hei':2.4}},
            'panel2':{
-                     'color':{'fname':r'Fil1641NE_hpacs_100.fits','hdulistnum':0,'title':r'$\rm 100~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.035,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_hpacs_70.fits','hdulistnum':0,'title':r'$\rm 70~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.05,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel3':{
-                     'color':{'fname':r'Fil1641NE_feathered_160.fits','hdulistnum':0,'title':r'$\rm 160~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.028,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_hpacs_100.fits','hdulistnum':0,'title':r'$\rm 100~\mu m$','colorscale':'gist_heat','mincolor':0.0008,'maxcolor':0.035,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel4':{
-                     'color':{'fname':r'Fil1641NE_feathered_250.fits','hdulistnum':0,'title':r'$\rm 250~\mu m$','colorscale':'gist_heat','mincolor':0.0014,'maxcolor':0.030,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_feathered_160.fits','hdulistnum':0,'title':r'$\rm 160~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.028,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel5':{
-                     'color':{'fname':r'Fil1641NE_feathered_350.fits','hdulistnum':0,'title':r'$\rm 350~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.018,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_feathered_250.fits','hdulistnum':0,'title':r'$\rm 250~\mu m$','colorscale':'gist_heat','mincolor':0.0014,'maxcolor':0.030,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel6':{
-                     'color':{'fname':r'Fil1641NE_jcmt_450.fits','hdulistnum':0,'title':r'$\rm 450~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.02,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_feathered_350.fits','hdulistnum':0,'title':r'$\rm 350~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.018,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel7':{
-                     'color':{'fname':r'Fil1641NE_feathered_500.fits','hdulistnum':0,'title':r'$\rm 500~\mu m$','colorscale':'gist_heat','mincolor':0.0003,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_jcmt_450.fits','hdulistnum':0,'title':r'$\rm 450~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.02,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel8':{
-                     'color':{'fname':r'Fil1641NE_jcmt_850.fits','hdulistnum':0,'title':r'$\rm 850~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_feathered_500.fits','hdulistnum':0,'title':r'$\rm 500~\mu m$','colorscale':'gist_heat','mincolor':0.0003,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel9':{
-                     'color':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','hdulistnum':0,'title':r'$\rm Column~Density$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':1.e23,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':84,'ycenter':-6,'wid':1.5,'hei':2.4}}
+                     'color':{'fname':r'Fil1641NE_jcmt_850.fits','hdulistnum':0,'title':r'$\rm 850~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            }
 
 lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -76,9 +76,9 @@ for j in range(0,ypanels):
         #ff.colorbar.set_pad(0.5)
         #ff.colorbar.set_axis_label_text(r'$\rm cm^{-2}$')
         ### colorbar for the last panel
-        if panelnum == 3:
+        if panelnum == 4:
             ff.show_regions('stick_two_parts.reg')
-        if panelnum == xpanels*ypanels:
+        if panelnum == 1:
             ff.show_rectangles(zoomxcenter,zoomycenter,zoomwid,zoomhei,edgecolor='y',linestyle='dashed',linewidth=3) 
             ff.add_scalebar(0.286,corner='bottom right',pad=3) # degree for 2 pc at 400 pc
             ff.scalebar.set_label('2 pc')

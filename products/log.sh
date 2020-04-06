@@ -1505,3 +1505,106 @@
    103 2020/04/05 18:08 vim log.sh
    104 2020/04/05 18:08 imsub in=mask_han1_mask_imfit_c18o_pix_2_Tmb.mir out=stick_han1_mask_imfit_c18o_pix_2_Tmb.mir region="abspix,boxes(162,554,1000,1346)"
    105 2020/04/05 18:09 mirout stick_han1_mask_imfit_c18o_pix_2_Tmb.mir
+    18 2020/04/06 10:42 cd ~/GoogleDrive/c18o/products/
+    19 2020/04/06 10:42 vim coldens.py
+    20 2020/04/06 10:43 git log -p --follow coldens.py
+    21 2020/04/06 10:43 grep coldens *.py
+    22 2020/04/06 11:35 rm -rf ~/Downloads/combined_scalefactor_c18o.SNR/
+    23 2020/04/06 11:35 rm -rf ~/Downloads/image.download/
+    24 2020/04/06 11:36 ls -thld * | grep sen
+    25 2020/04/06 11:36 vim sen.py
+    26 2020/04/06 11:37 ls *.fits
+    27 2020/04/06 11:37 ls *.fits | grep sen
+    28 2020/04/06 11:37 vim sen.py
+    29 2020/04/06 11:38 gname
+    30 2020/04/06 11:39 vim sen.py
+    31 2020/04/06 11:40 vim log.sh
+    32 2020/04/06 11:43 vim sen.py
+    33 2020/04/06 11:46 rm -rf ~/Downloads/c18o.150.sen-20200406T183627Z-001.zip
+    34 2020/04/06 11:49 mkdir combined_scalefactor_c18o.sen
+    35 2020/04/06 11:49 mv ~/Downloads/header combined_scalefactor_c18o.sen/
+    36 2020/04/06 11:49 mv ~/Downloads/history combined_scalefactor_c18o.sen/
+    37 2020/04/06 11:49 mv ~/Downloads/mask combined_scalefactor_c18o.sen/
+    38 2020/04/06 11:53 mv ~/Downloads/image combined_scalefactor_c18o.sen/
+    39 2020/04/06 11:53 lst
+    40 2020/04/06 11:55 vim log.sh
+    41 2020/04/06 11:56 imsub in=combined_scalefactor_c18o.sen out=stick_sen.mir region="abspix,boxes(162,554,1000,1346)"
+    42 2020/04/06 11:56 smir
+    43 2020/04/06 11:56 imsub in=combined_scalefactor_c18o.sen out=stick_sen.mir region="abspix,boxes(162,554,1000,1346)"
+    44 2020/04/06 11:56 vim log.sh
+    45 2020/04/06 11:57 moment in=stick_sen.mir out=mom0_stick_sen.mir mom=0 region="kms,images(6.7,9.1)"
+    46 2020/04/06 11:57 mirout mom0_stick_sen.mir
+    47 2020/04/06 11:57 lst
+    48 2020/04/06 11:57 mds9 mom0_stick_sen.fits
+    49 2020/04/06 11:59 vim repro.py
+    50 2020/04/06 12:00 gits
+    51 2020/04/06 12:00 python repro.py
+    52 2020/04/06 12:01 lst
+    53 2020/04/06 12:02 prthd in=combined_scalefactor_c18o.sen
+    54 2020/04/06 12:02 vim mask_imfit_c18o_pix_2_Tmb.mir/history
+    55 2020/04/06 12:03 lst
+    56 2020/04/06 12:03 python coldens.py
+    57 2020/04/06 12:03 lst
+    58 2020/04/06 12:03 mds9 abun18.fits
+     1 2020/04/06 12:15 source ~/.cshrc
+     2 2020/04/06 12:15 lst
+     3 2020/04/06 12:15 python repro.py
+     4 2020/04/06 12:16 vim remove4axis.py
+     5 2020/04/06 12:16 vim remove4axis.py
+     6 2020/04/06 12:17 prthd in=mom0_stick_mask_imfit_c18o_pix_2_Tmb.mir
+     7 2020/04/06 12:17 smir
+     8 2020/04/06 12:17 prthd in=mom0_stick_mask_imfit_c18o_pix_2_Tmb.mir
+     9 2020/04/06 12:17 vim remove34axes_pixel6.py
+    10 2020/04/06 12:18 grep novel $DROPATH/python_scripts/*.py
+    11 2020/04/06 12:18 grep novel ../../nan13co/*.py
+    12 2020/04/06 12:18 grep novel ../../nan12co/*.py
+    13 2020/04/06 12:18 grep novel ../../nanc18o/*.py
+    14 2020/04/06 12:18 vim remove4axis.py
+    15 2020/04/06 12:19 cp remove4axis.py remove3axis.py
+    16 2020/04/06 12:19 git add -f remove3axis.py
+    17 2020/04/06 12:19 vim remove3axis.py
+    18 2020/04/06 12:20 python remove3axis.py
+    19 2020/04/06 12:20 lst
+    20 2020/04/06 12:20 python repro.py
+    21 2020/04/06 12:21 python repro.py
+    59 2020/04/06 12:07 vim repro.py
+    60 2020/04/06 12:21 gits
+    61 2020/04/06 12:22 lst
+    22 2020/04/06 12:23 lst
+    62 2020/04/06 12:23 vim repro.py
+    23 2020/04/06 12:23 python repro.py
+    63 2020/04/06 13:46 grep threeaxes *.py
+    24 2020/04/06 13:48 lst
+    64 2020/04/06 13:47 vim add3axis.py
+    65 2020/04/06 13:50 gits
+    66 2020/04/06 13:50 python add3axis.py
+    67 2020/04/06 13:50 vim add3axis.py
+    25 2020/04/06 13:51 python add3axis.py
+    26 2020/04/06 13:51 python add3axis.py
+    27 2020/04/06 13:52 lst
+    28 2020/04/06 13:52 mds9 threeaxes_dustT_on_stick_header.fits
+    68 2020/04/06 13:51 vim add3axis.py
+    69 2020/04/06 13:54 git diff --follow coldens.py
+    70 2020/04/06 13:57 lst
+    71 2020/04/06 13:57 python coldens.py
+    72 2020/04/06 13:57 lst
+    73 2020/04/06 13:57 mds9 abun18tdust.fits
+    74 2020/04/06 13:57 mds9 abun18tkin.fits
+    75 2020/04/06 13:58 mds9 ../../AncillaryData/GBT/OrionA_Tkin_DR1_rebase3_flag.fits
+    76 2020/04/06 13:59 lst
+    77 2020/04/06 14:00 rm threeaxes_dustK_on_stick_header.fits
+    78 2020/04/06 14:00 rm dustK_on_stick_header.fits
+    79 2020/04/06 14:00 lst
+    80 2020/04/06 14:01 ls *.fits | grep dustK
+    81 2020/04/06 14:01 vim repro.py
+    82 2020/04/06 14:01 python repro.py
+    83 2020/04/06 14:02 vim add3axis.py
+    84 2020/04/06 14:04 python add3axis.py
+    85 2020/04/06 14:04 lst
+    86 2020/04/06 14:05 python coldens.py
+    87 2020/04/06 14:05 lst
+    88 2020/04/06 14:05 mds9 abun18tkin.fits
+    89 2020/04/06 14:23 lst
+    29 2020/04/06 14:42 lst
+    30 2020/04/06 14:42 python coldens.py
+    90 2020/04/06 14:41 vim coldens.py
