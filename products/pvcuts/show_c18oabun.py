@@ -28,7 +28,7 @@ fitsfiles={
              },
            }
 
-lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+lletter = ['e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 xpanels = 2
 ypanels = 1
@@ -63,7 +63,7 @@ for j in range(0,ypanels):
         ff.axis_labels.set_ytext(r'$\rm Dec~(J2000)$')
         ff.tick_labels.set_xformat('dd.d')
         ff.tick_labels.set_yformat('dd.d')
-        ff.ticks.set_color('white')
+        ff.ticks.set_color('black')
         ff.set_nan_color('white')
         #ff.add_colorbar() 
         #ff.colorbar.set_pad(0.5)
