@@ -1608,3 +1608,6 @@
     29 2020/04/06 14:42 lst
     30 2020/04/06 14:42 python coldens.py
     90 2020/04/06 14:41 vim coldens.py
+    91 2020/04/06 20:32 vim repro.py
+    92 2020/04/06 20:42 lst
+    93 2020/04/06 20:43 mds9 tex_on_stick_header.fits -region pvcuts/stickbody.reg &
