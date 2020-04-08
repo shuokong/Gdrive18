@@ -15,13 +15,13 @@ zoomwid = 0.4
 zoomhei = 0.4
 fitsfiles={
    'panel1':{
-      'color':{'fname':r'../abun18tex.fits','hdulistnum':0,'title':r'$\rm [C^{18}O]$','colorscale':'gray','mincolor':1.e-8,'maxcolor':1.e-6,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../abun18tex.fits','hdulistnum':0,'title':r'$\rm [C^{18}O]$','colorscale':'gray','mincolor':5.e-8,'maxcolor':5.e-7,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
         'file1':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','beamcolor':'red','color':'red','levels':1.e22*np.array([1.4,2.8,4.2]),'bmaj':None,'bmin':None,'pa':None},
                },
              },
    'panel2':{
-      'color':{'fname':r'../abun18tdust.fits','hdulistnum':0,'title':r'','colorscale':'gray','mincolor':1.e-8,'maxcolor':1.e-6,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../abun18tdust.fits','hdulistnum':0,'title':r'','colorscale':'gray','mincolor':5.e-8,'maxcolor':5.e-7,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
         'file1':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','beamcolor':'red','color':'red','levels':1.e22*np.array([1.4,2.8,4.2]),'bmaj':None,'bmin':None,'pa':None},
                },
@@ -81,9 +81,9 @@ for j in range(0,ypanels):
             ff.scalebar.set_color('black')
             ax1 = fig.add_axes([0.9,0.1,0.01,0.89])
             cmap = mpl.cm.gray
-            norm = mpl.colors.Normalize(vmin=1.e-8, vmax=1.e-6)
-            colorticks = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-            cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks*1.e-7)
+            norm = mpl.colors.Normalize(vmin=5.e-8, vmax=5.e-7)
+            colorticks = np.array([5,10,15,20,25,30,35,40,45,50])
+            cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks*1.e-8)
             cb1.ax.set_yticklabels([r'$\rm '+'{:<d}'.format(colorticks[ii])+r'$' for ii in range(len(colorticks))]) # 
             cb1.ax.tick_params(axis='y', direction='out') # 
             #cb1.set_label(r'$\rm K~km~s^{-1}$') 

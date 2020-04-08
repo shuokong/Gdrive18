@@ -1612,3 +1612,8 @@
     92 2020/04/06 20:42 lst
     93 2020/04/06 20:43 mds9 tex_on_stick_header.fits -region pvcuts/stickbody.reg &
     94 2020/04/07 14:38 lst
+     1 2020/04/07 17:02 source ~/.cshrc
+    31 2020/04/08 10:08 python coldens.py
+    32 2020/04/08 10:08 lst
+    33 2020/04/08 10:09 mds9 coldens18_thin_tdust.fits
+    34 2020/04/08 10:25 mds9 abun18tdust.fits

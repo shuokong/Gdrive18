@@ -48,7 +48,7 @@ dustcoldensdata = hdu3.data
 coldens18_thin = sk_nntot(mom018data,109.782182e9,1.,3.,tex12data,54891.420e6,0,0.11079)
 hdu4.data = sk_nntot(mom018data,109.782182e9,1.,3.,tex12data,54891.420e6,0,0.11079)
 hdu4.data = hdu4.data * sensbool
-hdu4.writeto('coldens18_thin.fits', output_verify='exception', overwrite=True, checksum=False)
+hdu4.writeto('coldens18_thin_tex.fits', output_verify='exception', overwrite=True, checksum=False)
 
 hdu4.data = coldens18_thin/dustcoldensdata
 hdu4.data = hdu4.data * sensbool
@@ -56,12 +56,20 @@ hdu4.writeto('abun18tex.fits', output_verify='exception', overwrite=True, checks
 
 ## use Herschel dust temperature
 coldens18_thin = sk_nntot(mom018data,109.782182e9,1.,3.,tdustdata,54891.420e6,0,0.11079)
+hdu4.data = sk_nntot(mom018data,109.782182e9,1.,3.,tdustdata,54891.420e6,0,0.11079)
+hdu4.data = hdu4.data * sensbool
+hdu4.writeto('coldens18_thin_tdust.fits', output_verify='exception', overwrite=True, checksum=False)
+
 hdu4.data = coldens18_thin/dustcoldensdata
 hdu4.data = hdu4.data * sensbool
 hdu4.writeto('abun18tdust.fits', output_verify='exception', overwrite=True, checksum=False)
 
 ## use NH3 kinetic temperature
 coldens18_thin = sk_nntot(mom018data,109.782182e9,1.,3.,tkindata,54891.420e6,0,0.11079)
+hdu4.data = sk_nntot(mom018data,109.782182e9,1.,3.,tkindata,54891.420e6,0,0.11079)
+hdu4.data = hdu4.data * sensbool
+hdu4.writeto('coldens18_thin_tkin.fits', output_verify='exception', overwrite=True, checksum=False)
+
 hdu4.data = coldens18_thin/dustcoldensdata
 hdu4.data = hdu4.data * sensbool
 hdu4.writeto('abun18tkin.fits', output_verify='exception', overwrite=True, checksum=False)
