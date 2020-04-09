@@ -1617,3 +1617,6 @@
     32 2020/04/08 10:08 lst
     33 2020/04/08 10:09 mds9 coldens18_thin_tdust.fits
     34 2020/04/08 10:25 mds9 abun18tdust.fits
+    38 2020/04/08 21:12 ls -thld * | grep han1
+    39 2020/04/08 21:15 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits &
+    40 2020/04/08 21:31 mds9 stick_mask_imfit_c18o_pix_2_Tmb.fits &
