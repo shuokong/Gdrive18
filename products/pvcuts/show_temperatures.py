@@ -28,7 +28,7 @@ fitsfiles={
              },
            }
 
-lletter = ['c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 xpanels = 2
 ypanels = 1
@@ -73,7 +73,7 @@ for j in range(0,ypanels):
             ff.show_regions('stick_two_parts.reg')
         else: 
             ff.show_regions('stick_two_parts.reg')
-            ff.show_regions('lanecores_aroundstick_noname.reg')
+            ff.show_regions('lanecores_aroundstick.reg')
         if panelnum == xpanels*ypanels:
 #            ff.show_rectangles(zoomxcenter,zoomycenter,zoomwid,zoomhei,edgecolor='y',linestyle='dashed',linewidth=3) 
             ff.add_scalebar(0.143,corner='bottom left',pad=0) # degree for 1 pc at 400 pc

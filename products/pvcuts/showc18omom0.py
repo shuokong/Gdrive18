@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from astropy.io import fits
 from matplotlib import rc
 rc('text', usetex=True)
-font = {'weight' : 'normal','size':20,'family':'sans-serif','sans-serif':['Helvetica']}
+font = {'weight' : 'normal','size':30,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
 #hdu1 = fits.open('../mom0_imsub_mask_imfit_c18o_pix_2_Tmb.fits')[0]
