@@ -1620,3 +1620,95 @@
     38 2020/04/08 21:12 ls -thld * | grep han1
     39 2020/04/08 21:15 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits &
     40 2020/04/08 21:31 mds9 stick_mask_imfit_c18o_pix_2_Tmb.fits &
+     4 2020/05/08 11:30 cd ~/GoogleDrive/c18o/products/
+     5 2020/05/08 11:30 ls -thld *.mir
+    35 2020/05/08 11:35 cd ../c18o/products/
+    36 2020/05/08 11:35 lst
+    37 2020/05/08 11:36 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits
+    38 2020/05/08 11:38 vim log.sh
+    39 2020/05/08 11:38 vim pvcuts/log.sh
+    40 2020/05/08 11:39 maths exp="<stick_han1_mask_imfit_c18o_pix_2_Tmb.mir>" region="abspix,images(37,38)" out=ringchan_stick_han1_mask_imfit_c18o_pix_2_Tmb.mir
+    41 2020/05/08 11:39 smir
+    42 2020/05/08 11:39 maths exp="<stick_han1_mask_imfit_c18o_pix_2_Tmb.mir>" region="abspix,images(37,38)" out=ringchan_stick_han1_mask_imfit_c18o_pix_2_Tmb.mir
+    43 2020/05/08 11:40 mirout ringchan_stick_han1_mask_imfit_c18o_pix_2_Tmb.mir
+    44 2020/05/08 11:40 lst
+    45 2020/05/08 11:40 mds9 ringchan_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits &
+    46 2020/05/08 11:41 ls ~/GoogleDrive/2020/VLA2020DDT/
+    68 2020/05/29 14:58 cd ~/GoogleDrive/c18o/products/
+    69 2020/05/29 14:58 mds9 imsub_mask_imfit_c18o_pix_2_Tmb.fits
+    70 2020/05/29 14:59 vim imsub.csh
+    71 2020/05/29 14:59 vim log.sh
+    72 2020/05/29 15:00 which imsub
+    73 2020/05/29 15:00 smir
+    74 2020/05/29 15:00 which smir
+    75 2020/05/29 15:00 vim ~/workinglist_tcsh
+    76 2020/05/29 15:00 source ~/workinglist_tcsh
+    77 2020/05/29 15:00 smir
+    78 2020/05/29 15:03 imsub in=mask_imfit_c18o_pix_2_Tmb.mir out=stick.mir region="abspix,boxes(417,847,928,1359)(81,88)"
+    79 2020/05/29 15:03 which fitsout
+    80 2020/05/29 15:03 mirout
+    81 2020/05/29 15:04 fits in=mask_imfit_c18o_pix_2_Tmb.fits op=xyin out=mask_imfit_c18o_pix_2_Tmb.mir
+    82 2020/05/29 15:10 imsub in=mask_imfit_c18o_pix_2_Tmb.mir out=stick.mir region="abspix,boxes(417,847,928,1359)(81,88)"
+    83 2020/05/29 15:10 lst
+    84 2020/05/29 15:10 fits in=stick.mir op=xyout out=stick.fits
+    85 2020/05/29 15:10 lst
+    86 2020/05/29 15:10 mds9 stick.fits
+    87 2020/05/29 15:11 rm stick.fits
+    88 2020/05/29 15:11 rm -rf stick.mir/
+    89 2020/05/29 15:11 imsub in=mask_imfit_c18o_pix_2_Tmb.mir out=stick.mir region="abspix,boxes(417,847,928,1358)(81,88)"
+    90 2020/05/29 15:11 fits in=stick.mir op=xyout out=stick.fits
+    91 2020/05/29 15:12 scp stick.fits sk2534@grace.hpc.yale.edu:/home/sk2534/project/athenapp/athenarun/python/
+    92 2020/05/29 15:15 vim remove4axis.py
+    93 2020/05/29 15:15 grep fits.open *.py
+    94 2020/05/29 15:15 vim usenanmask.py
+    95 2020/05/29 15:16 grep fits.writeto *.py
+    96 2020/05/29 15:16 vim repro.py
+    97 2020/05/29 15:17 mds9 stick.fits
+    98 2020/05/29 15:56 rm -r stick.*
+    99 2020/05/29 15:57 imsub in=mask_imfit_c18o_pix_2_Tmb.mir out=stick.mir region="abspix,boxes(1,1,128,128)(81,88)"
+   100 2020/05/29 15:57 fits in=stick.mir op=xyout out=stick.fits
+   101 2020/05/29 15:57 mds9 stick.fits
+   102 2020/05/29 15:57 scp stick.fits sk2534@grace.hpc.yale.edu:/home/sk2534/project/athenapp/athenarun/python/
+   103 2020/05/29 15:57 lst
+   104 2020/05/29 19:00 rm -r stick.*
+   105 2020/05/29 19:00 imsub in=mask_imfit_c18o_pix_2_Tmb.mir out=stick.mir region="abspix,boxes(1,1,128,128)(1,20)"
+   106 2020/05/29 19:00 fits in=stick.mir op=xyout out=stick.fits
+   107 2020/05/29 19:00 scp stick.fits sk2534@grace.hpc.yale.edu:/home/sk2534/project/athenapp/athenarun/python/
+   112 2020/05/30 10:21 cd -
+   113 2020/05/30 10:22 imsub in=mask_imfit_c18o_pix_2_Tmb.mir out=stick512.mir region="abspix,boxes(1,1,512,512)(1,20)"
+   114 2020/05/30 10:22 fits in=stick512.mir op=xyout out=stick512.fits
+   115 2020/05/30 10:22 scp stick512.fits sk2534@grace.hpc.yale.edu:/home/sk2534/project/athenapp/g512_4pc_isoth_grav_noTurb_rho1_b3_vcol2p0_vshear0p0_T60/python/
+     2 2020/06/05 20:48 cd ../../c18o/products/
+     3 2020/06/05 20:48 lst
+     4 2020/06/05 20:48 rm -rf mask_imfit_c18o_pix_2_Tmb\ \(1\).mir/
+     5 2020/06/05 20:48 rm -rf stick.*
+     6 2020/06/05 20:49 rm -rf stick512.*
+     7 2020/06/05 20:49 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits
+     4 2020/06/05 21:54 cd ~/GoogleDrive/c18o/products/
+     5 2020/06/05 21:55 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits &
+    11 2020/06/06 11:50 cd ..
+    12 2020/06/06 11:50 lst
+    13 2020/06/06 11:51 mds9 ../../omc6datacollection/CARMA/stick_mask_imfit_cs_pix_2_Tmb.fits &
+    14 2020/06/06 11:52 mds9 ../../omc6datacollection/CARMA_NRO45_combine/stick_mask_imfit_13co_pix_2_Tmb.fits
+    15 2020/06/06 11:57 mds9 ../../omc6datacollection/CARMA_NRO45_combine/stick_mask_imfit_12co_pix_2_Tmb.fits
+    16 2020/06/06 12:03 mds9 ../../omc6datacollection/CARMA_NRO45_combine/stick_mask_imfit_13co_pix_2_Tmb.fits
+    17 2020/06/06 18:14 ls ../../omc6datacollection/NRO45/
+    18 2020/06/06 18:20 mds9 ../../omc6datacollection/NRO45/ORIONA_N2HP_23.4arcsec_vel0.11_sph_v1.0.fits
+    19 2020/06/06 18:22 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits
+    20 2020/06/06 20:24 rm ~/Downloads/athinput.mrcol
+    21 2020/06/08 8:20 rm ~/Downloads/omc123_n2hp_int.fits
+    22 2020/06/08 8:21 mds9 ~/Downloads/omc123_n2hp_int.fits
+    52 2020/06/08 16:02 cd ../../c18o/products/
+    53 2020/06/08 16:02 mds9 mask_imfit_c18o_pix_2_Tmb.fits &
+    54 2020/06/08 16:05 prthd in=mask_imfit_c18o_pix_2_Tmb.mir
+    55 2020/06/08 16:06 imsub in=mask_imfit_c18o_pix_2_Tmb.mir out=omc123_c18o.mir region="boxes(1,2787,1938,3677)"
+    56 2020/06/08 16:06 mirout omc123_c18o.mir
+    57 2020/06/08 16:06 vim removehistory.py
+    58 2020/06/08 16:06 python removehistory.py
+    59 2020/06/08 16:06 lst
+    60 2020/06/08 16:07 rm -rf omc123_c18o.*
+    61 2020/06/08 16:07 mds9 omc123_c18o_Tmb.fits
+    23 2020/06/08 14:11 mds9 ~/Downloads/omc123_n2hp_int.fits
+    24 2020/06/08 20:54 mds9 omc123_c18o_Tmb.fits
+    24 2020/06/08 20:54 mds9 omc123_c18o_Tmb.fits
+    25 2020/06/08 21:15 mds9 omc123_c18o_Tmb.fits

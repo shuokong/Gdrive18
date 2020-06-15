@@ -5,22 +5,22 @@ import math
 import aplpy
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import pyfits
+from astropy.io import fits
 from matplotlib import rc
 rc('text', usetex=True)
 font = {'weight' : 'normal','size':50,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
-fitsfiles={'color':{'fname':'chan1_stick_mask_imfit_c18o_pix_2_Tmb.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
-        'template':{'fname':'chan1_stick_mask_imfit_c18o_pix_2_Tmb.fits'},
-         'channel':{'fname':'../stick_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':1,'maxcolor':8},
+fitsfiles={'color':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
+        'template':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits'},
+         'channel':{'fname':'../stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':1,'maxcolor':8},
            }
 
 os.system('cp '+fitsfiles['template']['fname']+' '+'template_'+fitsfiles['template']['fname'])
-templatehdulist = pyfits.open('template_'+fitsfiles['template']['fname'])
+templatehdulist = fits.open('template_'+fitsfiles['template']['fname'])
 templatedata = templatehdulist[0].data
 nanpixels = np.isnan(templatedata) # maybe this can be broadcast to the entire channeldata array. tbd
-channelhdulist = pyfits.open(fitsfiles['channel']['fname'])
+channelhdulist = fits.open(fitsfiles['channel']['fname'])
 channeldata = channelhdulist[0].data
 
 def currentvel(hdulistheader,currentchannel):
@@ -28,15 +28,15 @@ def currentvel(hdulistheader,currentchannel):
     vdelt= hdulistheader['CDELT3']
     return (vref + (currentchannel - 1) * vdelt)/1.e3
 
-ypanels=4
-xpanels=4
+ypanels=3
+xpanels=3
 zoomxcenter = 84.16327978
 zoomycenter = -6.301987814
 zoomwid = 0.4
 zoomhei = 0.4
 
-firstchannelstart=65
-lastchannel=80
+firstchannelstart=33
+lastchannel=41
 
 for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
 
