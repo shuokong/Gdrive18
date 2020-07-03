@@ -13,17 +13,19 @@ zoomxcenter = 84.16327978
 zoomycenter = -6.301987814
 zoomwid = 0.4
 zoomhei = 0.4
+minc = 15
+maxc = 60
 fitsfiles={
    'panel1':{
-      'color':{'fname':r'../tex_on_stick_header.fits','hdulistnum':0,'title':r'${\rm ^{12}CO}~T_{\rm ex}]$','colorscale':'gray','mincolor':10,'maxcolor':60,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../tex_on_stick_header.fits','hdulistnum':0,'title':r'${\rm ^{12}CO}~T_{\rm ex}]$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
         'file1':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','beamcolor':'red','color':'red','levels':1.e22*np.array([1.4,2.8,4.2]),'bmaj':None,'bmin':None,'pa':None},
                },
              },
    'panel2':{
-      'color':{'fname':r'../dustT_on_stick_header.fits','hdulistnum':0,'title':r'${\rm Herschel}~T_d]$','colorscale':'gray','mincolor':10,'maxcolor':60,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../dustT_on_stick_header.fits','hdulistnum':0,'title':r'${\rm Herschel}~T_d]$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
-        'file1':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','beamcolor':'red','color':'red','levels':1.e22*np.array([1.4,2.8,4.2]),'bmaj':None,'bmin':None,'pa':None},
+        'file1':{'fname':r'mom0_n2hp.fits','beamcolor':'magenta','color':'magenta','levels':1.e2*np.arange(7,30,7),'bmaj':24,'bmin':24,'pa':0},
                },
              },
            }
@@ -80,11 +82,11 @@ for j in range(0,ypanels):
             ff.scalebar.set_label('1 pc')
             ff.scalebar.set_color('black')
             ax1 = fig.add_axes([0.9,0.1,0.01,0.89])
-            cmap = mpl.cm.gray
-            #norm = mpl.colors.Normalize(vmin=10, vmax=60)
-            #norm = mpl.colors.LogNorm(vmin=10, vmax=60)
-            norm = mpl.colors.PowerNorm(gamma=0.5, vmin=10, vmax=60)
-            colorticks = np.array([10,20,30,40,50,60])
+            cmap = mpl.cm.gist_heat
+            #norm = mpl.colors.Normalize(vmin=minc, vmax=maxc)
+            #norm = mpl.colors.LogNorm(vmin=minc, vmax=maxc)
+            norm = mpl.colors.PowerNorm(gamma=0.5, vmin=minc, vmax=maxc)
+            colorticks = np.array([minc,20,30,40,50,maxc])
             cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks)
             cb1.ax.set_yticklabels([r'$\rm '+'{:<d}'.format(colorticks[ii])+r'$' for ii in range(len(colorticks))]) # 
             cb1.ax.tick_params(axis='y', direction='out') # 

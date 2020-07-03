@@ -1712,3 +1712,13 @@
     24 2020/06/08 20:54 mds9 omc123_c18o_Tmb.fits
     24 2020/06/08 20:54 mds9 omc123_c18o_Tmb.fits
     25 2020/06/08 21:15 mds9 omc123_c18o_Tmb.fits
+    64 2020/06/18 21:24 cd ~/GoogleDrive/c18o/products/
+    65 2020/06/18 21:24 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits
+    66 2020/06/18 21:49 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits
+     4 2020/06/30 13:59 cd ~/GoogleDrive/c18o/products/
+     5 2020/06/30 13:59 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits &
+    27 2020/07/02 10:22 cd ~/GoogleDrive/c18o/products/
+    28 2020/07/02 10:22 vim log.sh
+    29 2020/07/02 10:22 grep imsub log.sh | grep han1
+    30 2020/07/02 10:22 ls *.reg
+    31 2020/07/02 10:22 vim ds9.reg
