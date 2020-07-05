@@ -11,19 +11,9 @@ rc('text', usetex=True)
 font = {'weight' : 'normal','size':50,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
-fitsfiles={'color':{'fname':'chan1_Simul_30062020ccut_c18o.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
-        'template':{'fname':'chan1_Simul_30062020ccut_c18o.fits'},
-         'channel':{'fname':'Simul_30062020ccut_c18o.fits','title':r'C18O(1-0)','mincolor':1,'maxcolor':8},
-           }
-
-fitsfiles={'color':{'fname':'chan1_Simul_30062020ccut_13co_noisy.fits','title':'13CO(1-0)','bmaj':0,'bmin':0,'galpa':0},
-        'template':{'fname':'chan1_Simul_30062020ccut_13co_noisy.fits'},
-         'channel':{'fname':'Simul_30062020ccut_13co_noisy.fits','title':r'13CO(1-0)','mincolor':1,'maxcolor':10},
-           }
-
-fitsfiles={'color':{'fname':'chan1_Simul_30062020ccut_c18o_noisy.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
-        'template':{'fname':'chan1_Simul_30062020ccut_c18o_noisy.fits'},
-         'channel':{'fname':'Simul_30062020ccut_c18o_noisy.fits','title':r'C18O(1-0)','mincolor':1,'maxcolor':8},
+fitsfiles={'color':{'fname':'chan1_sim.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
+        'template':{'fname':'chan1_sim.fits'},
+         'channel':{'fname':'sim.fits','title':r'C18O(1-0)','mincolor':1,'maxcolor':150},
            }
 
 os.system('cp '+fitsfiles['template']['fname']+' '+'template_'+fitsfiles['template']['fname'])
@@ -40,21 +30,19 @@ def currentvel(hdulistheader,currentchannel):
 
 ypanels=2
 xpanels=3
-zoomxcenter = 0.1880632
-zoomycenter = 0.1880632
-zoomwid = 0.377
-zoomhei = 0.377
+zoomxcenter = 84.3334633
+zoomycenter = -6.7059980
+zoomwid = 0.27
+zoomhei = 0.27
 
-firstchannelstart=17
-lastchannel=22
+firstchannelstart=8
+lastchannel=13
 
 for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
 
     channelstart=startchan # start from which channel, note the different starting index. tbd
     currentchannel=channelstart
-    pdfname='Sim_c18o'+str(startchan)+'.pdf'
-    pdfname='Sim_13co_noisy'+str(startchan)+'.pdf'
-    pdfname='Sim_c18o_noisy'+str(startchan)+'.pdf'
+    pdfname='simc2s0p2'+str(startchan)+'.pdf'
     
     fig=plt.figure(figsize=(3*xpanels*1.1*(zoomwid/(zoomwid+zoomhei))*10.,3*ypanels/1.1*(zoomhei/(zoomwid+zoomhei))*10.))
     for j in range(0,ypanels): # this order first follows row

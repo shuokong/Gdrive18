@@ -11,14 +11,14 @@ rc('text', usetex=True)
 font = {'weight' : 'normal','size':50,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
-fitsfiles={'color':{'fname':'chan1_stick_mask_imfit_13co_pix_2_Tmb.fits','title':'13CO(1-0)','bmaj':0,'bmin':0,'galpa':0},
-        'template':{'fname':'chan1_stick_mask_imfit_13co_pix_2_Tmb.fits'},
-         'channel':{'fname':'stick_mask_imfit_13co_pix_2_Tmb.fits','title':r'13CO(1-0)','mincolor':1,'maxcolor':8},
-           }
-
 fitsfiles={'color':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
         'template':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits'},
          'channel':{'fname':'../stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':1,'maxcolor':8},
+           }
+
+fitsfiles={'color':{'fname':'chan1_stick_mask_han1_imfit_13co_pix_2_Tmb.fits','title':'13CO(1-0)','bmaj':0,'bmin':0,'galpa':0},
+        'template':{'fname':'chan1_stick_mask_han1_imfit_13co_pix_2_Tmb.fits'},
+         'channel':{'fname':'stick_mask_han1_imfit_13co_pix_2_Tmb.fits','title':r'13CO(1-0)','mincolor':0,'maxcolor':0},
            }
 
 os.system('cp '+fitsfiles['template']['fname']+' '+'template_'+fitsfiles['template']['fname'])
@@ -33,22 +33,22 @@ def currentvel(hdulistheader,currentchannel):
     vdelt= hdulistheader['CDELT3']
     return (vref + (currentchannel - 1) * vdelt)/1.e3
 
-ypanels=2
-xpanels=2
+ypanels=5
+xpanels=5
 zoomxcenter = 84.16327978
 zoomycenter = -6.301987814
 zoomwid = 0.4
 zoomhei = 0.4
 
-firstchannelstart=35
-lastchannel=38
+firstchannelstart=31
+lastchannel=55
 
 for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
 
     channelstart=startchan # start from which channel, note the different starting index. tbd
     currentchannel=channelstart
-    pdfname='chan13co'+str(startchan)+'.pdf'
     pdfname='chanc18o'+str(startchan)+'.pdf'
+    pdfname='chan13co'+str(startchan)+'.pdf'
     
     fig=plt.figure(figsize=(3*xpanels*1.1*(zoomwid/(zoomwid+zoomhei))*10.,3*ypanels/1.1*(zoomhei/(zoomwid+zoomhei))*10.))
     for j in range(0,ypanels): # this order first follows row
@@ -61,10 +61,14 @@ for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
             ff.set_theme('publication')
             mincolor = fitsfiles['channel']['mincolor']
             maxcolor = fitsfiles['channel']['maxcolor']
-            ff.show_colorscale(vmin=mincolor,vmax=maxcolor,cmap='gray_r',stretch='linear')
-            ff.recenter(zoomxcenter,zoomycenter,width=zoomwid,height=zoomhei) 
-            if j == 1: 
+            if maxcolor != 0: 
+                ff.show_colorscale(vmin=mincolor,vmax=maxcolor,cmap='gray_r',stretch='linear')
+                if j == 1: 
+                    ff.show_regions('stickrings.reg')
+            else:
+                ff.show_colorscale(vmin=2,pmax=99.75,cmap='gray_r',stretch='power',exponent=2)
                 ff.show_regions('stickrings.reg')
+            ff.recenter(zoomxcenter,zoomycenter,width=zoomwid,height=zoomhei) 
             ff.tick_labels.set_yformat('dd.d')
             ff.tick_labels.set_xformat('dd.d')
             beamx = zoomxcenter + 0.8 * zoomwid / 2.

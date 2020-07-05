@@ -1,0 +1,29 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+image
+box(246.30631,245.91372,99.999996,9.9999996,315.02477)
+circle(252.1826,254.21843,4.9999998) # color=red font="helvetica 15 normal roman" text={1}
+circle(245.36649,246.85389,4.9999998) # color=red font="helvetica 15 normal roman" text={2}
+circle(238.55036,239.48935,4.9999998) # color=red font="helvetica 15 normal roman" text={3}
+circle(232.04639,231.91306,4.9999998) # color=red font="helvetica 15 normal roman" text={4}
+circle(224.67731,225.02458,4.9999998) # color=red font="helvetica 15 normal roman" text={5}
+circle(217.46843,217.97589,4.9999998) # color=red font="helvetica 15 normal roman" text={6}
+circle(210.74014,210.44662,4.9999998) # color=red font="helvetica 15 normal roman" text={7}
+circle(203.85165,203.23773,4.9999998) # color=red font="helvetica 15 normal roman" text={8}
+circle(197.28356,195.70846,4.9999998) # color=red font="helvetica 15 normal roman" text={9}
+circle(190.87566,188.01898,4.9999998) # color=red font="helvetica 15 normal roman" text={10}
+circle(184.30757,180.48971,4.9999998) # color=red font="helvetica 15 normal roman" text={11}
+circle(177.25889,173.44102,4.9999998) # color=red font="helvetica 15 normal roman" text={12}
+circle(170.2102,166.23214,4.9999998) # color=red font="helvetica 15 normal roman" text={13}
+circle(163.32172,159.02326,4.9999998) # color=red font="helvetica 15 normal roman" text={14}
+circle(156.43323,151.81438,4.9999998) # color=red font="helvetica 15 normal roman" text={15}
+circle(149.38455,144.6055,4.9999998) # color=red font="helvetica 15 normal roman" text={16}
+circle(142.49606,137.39662,4.9999998) # color=red font="helvetica 15 normal roman" text={17}
+circle(135.28718,130.34793,4.9999998) # color=red font="helvetica 15 normal roman" text={18}
+circle(128.0783,123.45945,4.9999998) # color=red font="helvetica 15 normal roman" text={19}
+circle(121.18981,116.25056,4.9999998) # color=red font="helvetica 15 normal roman" text={20}
+circle(114.46152,108.72129,4.9999998) # color=red font="helvetica 15 normal roman" text={21}
+circle(107.25264,101.6726,4.9999998) # color=red font="helvetica 15 normal roman" text={22}
+circle(100.36415,94.303516,4.9999998) # color=red font="helvetica 15 normal roman" text={23}
+circle(93.63586,86.774246,4.9999998) # color=red font="helvetica 15 normal roman" text={24}
+circle(86.90757,79.405166,4.9999998) # color=red font="helvetica 15 normal roman" text={25}
