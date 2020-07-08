@@ -37,7 +37,7 @@ def makepv(name_in,pps=pps1,makepvfits=1,delpvfits=1):
     ypanels = 5
     xpanelwidth = 3
     ypanelwidth = 4
-    pdfname=name_in.split('.')[0]+'.pdf'
+    pdfname=name_in.split('.')[0]+'_pv.pdf'
     fig=plt.figure(figsize=(xpanelwidth*xpanels*1.1,ypanelwidth*ypanels))
     plt.subplots_adjust(wspace=0.1,hspace=0.1)
     for nn,name_out in enumerate(name_outs):
@@ -90,6 +90,10 @@ fitsname='vrad_simc2s0p5_-20ccut_C18O.fits'
 fitsname='vrad_simc2s0p5_-20ccut_C18O_noisy.fits'
 fitsname='vrad_simc2s0p2_-30ccut_C18O.fits'
 fitsname='vrad_simc2s0p2_-30ccut_C18O_noisy.fits'
+fitsname='vrad_simc2s0p5_-30ccut_C18O.fits'
+fitsname='vrad_simc2rho0p7_-50ccut_C18O.fits'
+fitsname='vrad_simc2rho0p7_-50ccut_C18O_noisy.fits'
+fitsname='vrad_simc2s0p5_-30ccut_C18O_noisy.fits'
 rp = makepv(fitsname,pps=pps2,makepvfits=1,delpvfits=1)
 print(rp)
 

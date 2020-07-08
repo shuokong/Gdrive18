@@ -16,5 +16,9 @@ def changevrad(inff,newvl,newvr):
 #changevrad('simc2s0p5_-20ccut_C18O.fits',-3.,3.)
 #changevrad('simc2s0p5_-20ccut_C18O_noisy.fits',-3.,3.)
 #changevrad('simc2s0p2_-30ccut_C18O.fits',-3.,3.)
-changevrad('simc2s0p2_-30ccut_C18O_noisy.fits',-3.,3.)
+#changevrad('simc2s0p2_-30ccut_C18O_noisy.fits',-3.,3.)
+#changevrad('simc2s0p5_-30ccut_C18O.fits',-3.,3.)
+#changevrad('simc2s0p5_-30ccut_C18O_noisy.fits',-3.,3.)
+changevrad('simc2rho0p7_-50ccut_C18O.fits',-3.,3.)
+changevrad('simc2rho0p7_-50ccut_C18O_noisy.fits',-3.,3.)
 
