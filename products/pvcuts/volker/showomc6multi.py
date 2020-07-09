@@ -17,29 +17,29 @@ zoomhei = 0.377
 fitsfiles={
             'title':r'$\rm MRCOL,\alpha=-30^\circ,FIR$',
               'pdf':r'simc2s0p5_-30',
+#           'panel1':{
+#                     'color':{'fname':r'simc2s0p5_-30ccut_i250_noisy.fits','hdulistnum':0,'title':r'$\rm F_{250}$','colorscale':'gist_heat','mincolor':0,'maxcolor':300,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel1':{
-                     'color':{'fname':r'simc2s0p5_-30ccut_i250_noisy.fits','hdulistnum':0,'title':r'$\rm RT~F_{250}$','colorscale':'gist_heat','mincolor':0,'maxcolor':300,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'simc2s0p5_-30ccut_i850_noisy.fits','hdulistnum':0,'title':r'$\rm F_{850}$','colorscale':'gist_heat','mincolor':0,'maxcolor':20,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel2':{
-                     'color':{'fname':r'simc2s0p5_-30ccut_i850_noisy.fits','hdulistnum':0,'title':r'$\rm RT~F_{850}$','colorscale':'gist_heat','mincolor':0,'maxcolor':20,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
-           'panel3':{
-                     'color':{'fname':r'simc2s0p5_-30ccut_nh.fits','hdulistnum':0,'title':r'$N_H$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':4.e22,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'simc2s0p5_-30ccut_nh.fits','hdulistnum':0,'title':r'$N_H$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':3.e22,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            }
 
 fitsfiles={
             'title':r'$\rm MRCOL_{\rm \rho_0=0.7},\alpha=-50^\circ,FIR$',
               'pdf':r'simc2rho0p7_-50',
+#           'panel1':{
+#                     'color':{'fname':r'simc2rho0p7_-50ccut_i250_noisy.fits','hdulistnum':0,'title':r'$\rm F_{250}$','colorscale':'gist_heat','mincolor':0,'maxcolor':400,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel1':{
-                     'color':{'fname':r'simc2rho0p7_-50ccut_i250_noisy.fits','hdulistnum':0,'title':r'$\rm RT~F_{250}$','colorscale':'gist_heat','mincolor':0,'maxcolor':400,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'simc2rho0p7_-50ccut_i850_noisy.fits','hdulistnum':0,'title':r'$\rm F_{850}$','colorscale':'gist_heat','mincolor':0,'maxcolor':30,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel2':{
-                     'color':{'fname':r'simc2rho0p7_-50ccut_i850_noisy.fits','hdulistnum':0,'title':r'$\rm RT~F_{850}$','colorscale':'gist_heat','mincolor':0,'maxcolor':30,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
-           'panel3':{
-                     'color':{'fname':r'simc2rho0p7_-50ccut_nh.fits','hdulistnum':0,'title':r'$N_H$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':8.e22,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'simc2rho0p7_-50ccut_nh.fits','hdulistnum':0,'title':r'$N_H$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':6.e22,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            }
 
 
 lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-xpanels = 3
+xpanels = 2
 ypanels = 1
 fig=plt.figure(figsize=(3*xpanels*5.*1.13,3*ypanels*5.),frameon=False)
 pdfname = fitsfiles['pdf']+'ccut_multi.pdf'
@@ -75,6 +75,7 @@ for j in range(0,ypanels):
         #    ff.add_scalebar(0.143,corner='bottom') # degree for 1 pc at 400 pc
         #    ff.scalebar.set_label('1 pc')
         #    ff.scalebar.set_color('white')
+        ff.add_label(0.1,0.9,fitsfiles['panel'+str(panelnum)]['color']['title'],relative=True,color='white')
         ff.set_tick_color('black') 
         ff.hide_xaxis_label()
         ff.hide_xtick_labels()

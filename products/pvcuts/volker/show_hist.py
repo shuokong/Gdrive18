@@ -15,8 +15,44 @@ xpanelwidth = 7
 ypanelwidth = 7
 
 hists = {
+# 'panel1':{
+#    'title':r'$T$','xlabel':r'$F_{250}~\rm (MJy~sr^{-1})$','ylabel':r'','xmin':10.,'xmax':1000.,'ymin':0.001,'ymax':0.5,'xscale':'log','yscale':'log','loc':1,
+#    'hist1':{
+#       'file':fits.open('../Fil1641NE_feathered_250.fits')[0].data*4.25e4, # convert from Jy/arcsec2 to MJy/sr
+#       'mask':fits.open('bool_Fil1641NE_feathered_250.fits')[0].data.astype('bool'),
+#     'legend':r'${\rm Herschel}$','linestyle':'r-', 
+#             },
+#    'hist2':{
+#       'file':fits.open('simc2s0p5_-30ccut_i250_noisy.fits')[0].data,
+#       'mask':fits.open('bool_simc2s0p5_-30ccut_i250_noisy.fits')[0].data.astype('bool'),
+#     'legend':r'$\rm MRCOL$','linestyle':'k-', 
+#             },
+#    'hist3':{
+#       'file':fits.open('simc2rho0p7_-50ccut_i250_noisy.fits')[0].data,
+#       'mask':fits.open('bool_simc2rho0p7_-50ccut_i250_noisy.fits')[0].data.astype('bool'),
+#     'legend':r'$\rm MRCOL_{\rho_0=0.7}$','linestyle':'b-', 
+#             },
+#           },
  'panel1':{
-    'title':r'$T$','xlabel':r'$N_H~\rm (\times10^{21}~cm^{-2})$','ylabel':r'','xmin':1.,'xmax':100.,'ymin':0.001,'ymax':0.5,'xscale':'log','yscale':'log',
+    'title':r'$T$','xlabel':r'$F_{850}~\rm (MJy~sr^{-1})$','ylabel':r'','xmin':0.01,'xmax':100.,'ymin':0.001,'ymax':0.5,'xscale':'log','yscale':'log','loc':3,
+    'hist1':{
+       'file':fits.open('../Fil1641NE_jcmt_850.fits')[0].data*4.25e4/9.,
+       'mask':fits.open('bool_Fil1641NE_jcmt_850.fits')[0].data.astype('bool'),
+     'legend':r'${\rm JCMT}$','linestyle':'r-', 
+             },
+    'hist2':{
+       'file':fits.open('simc2s0p5_-30ccut_i850_noisy.fits')[0].data,
+       'mask':fits.open('bool_simc2s0p5_-30ccut_i850_noisy.fits')[0].data.astype('bool'),
+     'legend':r'$\rm MRCOL$','linestyle':'k-', 
+             },
+    'hist3':{
+       'file':fits.open('simc2rho0p7_-50ccut_i850_noisy.fits')[0].data,
+       'mask':fits.open('bool_simc2rho0p7_-50ccut_i850_noisy.fits')[0].data.astype('bool'),
+     'legend':r'$\rm MRCOL_{\rho_0=0.7}$','linestyle':'b-', 
+             },
+           },
+ 'panel2':{
+    'title':r'$T$','xlabel':r'$N_H~\rm (\times10^{21}~cm^{-2})$','ylabel':r'','xmin':0.4,'xmax':100.,'ymin':0.001,'ymax':0.5,'xscale':'log','yscale':'log','loc':1,
     'hist1':{
        'file':fits.open('../carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits')[0].data/1.e21,
        'mask':fits.open('bool_stickbody_nh.fits')[0].data.astype('bool'),
@@ -30,12 +66,12 @@ hists = {
     'hist3':{
        'file':fits.open('simc2rho0p7_-50ccut_nh.fits')[0].data/1.e21,
        'mask':fits.open('bool_simc2s0p5_-30ccut_nh.fits')[0].data.astype('bool'),
-     'legend':r'$\rm \rho_0=0.7$','linestyle':'b-', 
+     'legend':r'$\rm MRCOL_{\rho_0=0.7}$','linestyle':'b-', 
              },
            },
          }
 
-xpanels = 1
+xpanels = 2
 ypanels = 1
 datafiles = {}
 for i in range(0,xpanels):
@@ -44,12 +80,15 @@ for i in range(0,xpanels):
         print 'panel',panel 
         print hists['panel'+str(panel)]['title']
         xmin = hists['panel'+str(panel)]['xmin']
+        binl = int(np.log10(xmin)/0.1)*0.1+0.05
         xmax = hists['panel'+str(panel)]['xmax'] 
+        binr = int(np.log10(xmax)/0.1)*0.1-0.05
+        binn = int((binr-binl)/0.1)+1 
         ymin = hists['panel'+str(panel)]['ymin']
         ymax = hists['panel'+str(panel)]['ymax'] 
         xscale = hists['panel'+str(panel)]['xscale'] 
         yscale = hists['panel'+str(panel)]['yscale']
-        datafiles['panel'+str(panel)] = {'title':hists['panel'+str(panel)]['title'],'lines':{},'xlim':[xmin,xmax],'ylim':[ymin,ymax],'xscale':xscale,'yscale':yscale,'xlabel':hists['panel'+str(panel)]['xlabel'],'ylabel':hists['panel'+str(panel)]['ylabel'],'text':'','vertlines':[]}
+        datafiles['panel'+str(panel)] = {'title':hists['panel'+str(panel)]['title'],'lines':{},'xlim':[xmin,xmax],'ylim':[ymin,ymax],'xscale':xscale,'yscale':yscale,'xlabel':hists['panel'+str(panel)]['xlabel'],'ylabel':hists['panel'+str(panel)]['ylabel'],'text':'','vertlines':[],'loc':hists['panel'+str(panel)]['loc']}
         linenum = 1 
         for hh in hists['panel'+str(panel)].iterkeys():
             if hh.startswith('hist'): 
@@ -59,7 +98,7 @@ for i in range(0,xpanels):
                 sample = hdu1data[maskdata]
                 print 'len(sample)',len(sample)
                 print 'min max sample',min(sample),max(sample)
-                bins = np.logspace(0.05, 2.15, num=22) # evenly distributed in log10 space
+                bins = np.logspace(binl, binr, num=binn) # evenly distributed in log10 space
                 binsizes = [np.log10(bins[ind]) - np.log10(bins[ind-1]) for ind in range(1,len(bins))]
                 bincenters = [(bins[ind]*bins[ind-1])**0.5 for ind in range(1,len(bins))]
                 hist = np.histogram(sample, bins=bins, density=True)
@@ -69,7 +108,7 @@ for i in range(0,xpanels):
                 linenum += 1 
 
 fig=plt.figure(figsize=(xpanelwidth*xpanels*1.1,ypanelwidth*ypanels/1.1))
-plt.subplots_adjust(wspace=0.05,hspace=0.01)
+plt.subplots_adjust(wspace=0.15,hspace=0.01)
 pdfname='nhhist.pdf'
 for i in range(0,xpanels):
     for j in range(0,ypanels):
@@ -95,7 +134,8 @@ for i in range(0,xpanels):
             drawsty = datafiles['panel'+str(panelnum)]['lines'][str(datafilenum+1)]['drawsty']
             ax.plot(x,y,linestyle,label=legend,drawstyle=drawsty)
             #ax.text(peakvelocity+0.8, yup*0.9, '%.1f' % peakvelocity + ',' + '%.1f' % peaksnr,horizontalalignment='left',verticalalignment='center')
-        ax.legend(frameon=False,labelspacing=0.2) 
+        lloc = datafiles['panel'+str(panelnum)]['loc']
+        ax.legend(frameon=False,labelspacing=0.1,loc=lloc) 
         #if j == 0:
         #    ax.set_title(datafiles['panel'+str(panelnum)]['title'])
         #ax.text(0.05, 0.9,datafiles['panel'+str(panelnum)]['title'],horizontalalignment='left',verticalalignment='center',transform = ax.transAxes)
@@ -112,11 +152,11 @@ for i in range(0,xpanels):
             ax.set_xticklabels(ax.get_xlabel(),visible=False)
         else: 
             ax.set_xlabel(xlabel)
-        if i != 0:
-            ax.set_yticklabels(ax.get_ylabel(),visible=False) 
-            ax.set_xticks(ax.get_xticks()[1:]) 
-        else: 
-            ax.set_ylabel(ylabel)
+        #if i != 0:
+        #    ax.set_yticklabels(ax.get_ylabel(),visible=False) 
+        #    ax.set_xticks(ax.get_xticks()[1:]) 
+        #else: 
+        #    ax.set_ylabel(ylabel)
         #minor_locator = AutoMinorLocator(5)
         #ax.xaxis.set_minor_locator(minor_locator)
         #ax.tick_params(axis='both',direction='in',length=5,which='major',top=True,right=True)
