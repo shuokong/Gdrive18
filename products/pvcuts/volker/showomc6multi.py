@@ -15,17 +15,6 @@ zoomwid = 0.377
 zoomhei = 0.377
 
 fitsfiles={
-            'title':r'$\rm MRCOL,\alpha=-30^\circ,FIR$',
-              'pdf':r'simc2s0p5_-30',
-#           'panel1':{
-#                     'color':{'fname':r'simc2s0p5_-30ccut_i250_noisy.fits','hdulistnum':0,'title':r'$\rm F_{250}$','colorscale':'gist_heat','mincolor':0,'maxcolor':300,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
-           'panel1':{
-                     'color':{'fname':r'simc2s0p5_-30ccut_i850_noisy.fits','hdulistnum':0,'title':r'$\rm F_{850}$','colorscale':'gist_heat','mincolor':0,'maxcolor':20,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
-           'panel2':{
-                     'color':{'fname':r'simc2s0p5_-30ccut_nh.fits','hdulistnum':0,'title':r'$N_H$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':3.e22,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
-           }
-
-fitsfiles={
             'title':r'$\rm MRCOL_{\rm \rho_0=0.7},\alpha=-50^\circ,FIR$',
               'pdf':r'simc2rho0p7_-50',
 #           'panel1':{
@@ -34,6 +23,17 @@ fitsfiles={
                      'color':{'fname':r'simc2rho0p7_-50ccut_i850_noisy.fits','hdulistnum':0,'title':r'$\rm F_{850}$','colorscale':'gist_heat','mincolor':0,'maxcolor':30,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel2':{
                      'color':{'fname':r'simc2rho0p7_-50ccut_nh.fits','hdulistnum':0,'title':r'$N_H$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':6.e22,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+           }
+
+fitsfiles={
+            'title':r'$\rm MRCOL,\alpha=-30^\circ,FIR$',
+              'pdf':r'simc2s0p5_-30',
+#           'panel1':{
+#                     'color':{'fname':r'simc2s0p5_-30ccut_i250_noisy.fits','hdulistnum':0,'title':r'$\rm F_{250}$','colorscale':'gist_heat','mincolor':0,'maxcolor':300,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+           'panel1':{
+                     'color':{'fname':r'simc2s0p5_-30ccut_i850_noisy.fits','hdulistnum':0,'title':r'$\rm F_{850}$','colorscale':'gist_heat','mincolor':0,'maxcolor':20,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+           'panel2':{
+                     'color':{'fname':r'simc2s0p5_-30ccut_nh.fits','hdulistnum':0,'title':r'$N_H$','colorscale':'gist_heat','mincolor':1.e21,'maxcolor':3.e22,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            }
 
 
@@ -68,7 +68,7 @@ for j in range(0,ypanels):
             mincolor = fitsfiles['panel'+str(panelnum)]['color']['mincolor']
             maxcolor = fitsfiles['panel'+str(panelnum)]['color']['maxcolor']
             ff.show_colorscale(cmap=fitsfiles['panel'+str(panelnum)]['color']['colorscale'], vmin=mincolor, vmax=maxcolor, stretch=fitsfiles['panel'+str(panelnum)]['color']['stretch'])
-        #ff.show_regions('lanecores.reg')
+        ff.show_regions('mrcolcore.reg')
         if panelnum == 4:
             ff.show_regions('stick_two_parts.reg')
         #if panelnum == 1:

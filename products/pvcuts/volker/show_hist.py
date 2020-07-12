@@ -6,7 +6,7 @@ from matplotlib.ticker import AutoMinorLocator
 from matplotlib import rc
 from astropy.io import fits
 rc('text', usetex=True)
-font = {'weight' : 'normal','size':20,'family':'sans-serif','sans-serif':['Helvetica']}
+font = {'weight' : 'normal','size':16,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
 lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -38,7 +38,7 @@ hists = {
     'hist1':{
        'file':fits.open('../Fil1641NE_jcmt_850.fits')[0].data*4.25e4/9.,
        'mask':fits.open('bool_Fil1641NE_jcmt_850.fits')[0].data.astype('bool'),
-     'legend':r'${\rm JCMT}$','linestyle':'r-', 
+     'legend':r'${\rm JCMT}$','linestyle':'g-', 
              },
     'hist2':{
        'file':fits.open('simc2s0p5_-30ccut_i850_noisy.fits')[0].data,
@@ -67,6 +67,11 @@ hists = {
        'file':fits.open('simc2rho0p7_-50ccut_nh.fits')[0].data/1.e21,
        'mask':fits.open('bool_simc2s0p5_-30ccut_nh.fits')[0].data.astype('bool'),
      'legend':r'$\rm MRCOL_{\rho_0=0.7}$','linestyle':'b-', 
+             },
+    'hist4':{
+       'file':fits.open('../Fil1641NE_jcmt_850.fits')[0].data*4.25e4/9./8.56256e-1,
+       'mask':fits.open('bool_Fil1641NE_jcmt_850.fits')[0].data.astype('bool'),
+     'legend':r'$\rm JCMT,850$','linestyle':'g-', 
              },
            },
          }

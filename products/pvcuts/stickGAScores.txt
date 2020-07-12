@@ -1,0 +1,49 @@
+#Title: The Green Bank Ammonia Survey: Dense Cores Under Pressure 
+#       in Orion A 
+#Authors: Kirk H., Friesen R.K., Pineda J.E., Rosolowsky E., Offner S.S.R., 
+#         Matzner C.D., Myers P.C., Di Francesco J., Caselli P., Alves F.O., 
+#         Chacon-Tanarro A., Chen H.-H., Chen M.C.-Y., Keown J., Punanova A., 
+#         Seo Y.M., Shirley Y., Ginsburg A., Hall C., Singh A., Arce H.G., 
+#         Goodman A.A., Martin P., Redaelli E.
+#Table: Dense Core Properties
+#================================================================================
+#Byte-by-byte Description of file: apjaa8631t1_mrt.txt
+#--------------------------------------------------------------------------------
+#   Bytes Format Units     Label      Explanations
+#--------------------------------------------------------------------------------
+#   1-  3 I3     ---       Seq        Sequential Core ID (1)
+#   5- 12 F8.5   deg       RAdeg      Right Ascension, core's central position (J2000) 
+#  14- 21 F8.5   deg       DEdeg      Declination, core's central position (J2000) 
+#  23- 27 F5.2   Msun      Mass       Core Mass (2)
+#  29- 33 F5.3   pc        Reff       Effective Radius (3)
+#  35- 38 F4.2   ---       Conc       Concentration (4)
+#  40- 40 A1     ---       YSO?       [YN?] Core has an associated protostar?
+#  42- 46 F5.3   km/s      sigma-obs  Mean Velocity Dispersion (5)
+#  48- 52 F5.3   km/s    e_sigma-obs  formal error in sigma-obs
+#  54- 58 F5.3   km/s    s_sigma-obs  weighted standard deviation of sigma-obs
+#  60- 63 F4.1   K         Tkin       Mean Kinetic Temperature (5)
+#  65- 67 F3.1   K       e_Tkin       e_formal error in Tkin
+#  69- 71 F3.1   K       s_Tkin       weighted standard deviation of Tkin
+#  73- 75 F3.1   [K/cm3]   log(Pc)    Estimated pressure, log (Pc/kB)
+#  77- 83 E7.5   ---       Vir        Virial ratio, -({Omega}G
+#                                      +{Omega}P,c)/2{Omega}K
+#  85- 91 E7.5   ---       G/K        Gravitational vs thermal pressure,
+#                                      -{Omega}G/{Omega}K
+#  93- 99 E7.5   ---       G/Pc       Core confinement ratio, {Omega}G/{Omega}P,c
+#--------------------------------------------------------------------------------
+#Note (1): Cores taken from the "getsources" catalog discussed in 
+#    Lane et al. (2016ApJ...833...44L)
+#Note (2): Estimated using Eqn 1 (this paper) from the total flux.
+#Note (3): Geometric mean of the major and minor axis lengths.
+#Note (4): As derived using equation 11 (this paper).
+#Note (5): Value reported for each quantity is the mean weighted by the inverse 
+#    square of the uncertainty, averaging over all core pixels where sufficient 
+#    signal was present.
+#--------------------------------------------------------------------------------
+ 99 84.04762 -6.17912  1.92 0.026 0.62 N 0.266 0.001 0.041 13.3 0.1 0.6 6.9 8.0E-01 5.4E-01 5.1E-01 
+265 84.10731 -6.23729  0.94 0.025 0.54 N 0.440 0.002 0.046 12.8 0.1 0.7 6.9 5.8E-01 1.3E-01 1.3E-01 
+282 84.09522 -6.21789  0.39 0.017 0.57 N 0.297 0.002 0.127 13.9 0.1 0.6 6.9 8.1E-01 1.4E-01 9.5E-02 
+294 84.10313 -6.23431  3.60 0.051 0.45 N 0.448 0.002 0.046 12.9 0.1 0.8 6.9 1.2E+00 2.4E-01 1.1E-01 
+357 84.08591 -6.22051  0.32 0.020 0.65 N 0.321 0.003 0.111 13.9 0.1 0.6 6.9 1.3E+00 8.9E-02 3.5E-02 
+571 84.01832 -6.16034  0.22 0.036 0.56 N 0.473 0.007 0.114 17.8 0.4 1.5 6.8 4.3E+00 1.8E-02 2.1E-03 
+610 84.12174 -6.25239  0.81 0.041 0.49 N 0.357 0.003 0.042 13.9 0.2 1.8 6.9 3.6E+00 9.5E-02 1.3E-02 
