@@ -11,14 +11,14 @@ rc('text', usetex=True)
 font = {'weight' : 'normal','size':50,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
-fitsfiles={'color':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':'C18O(1-0)','bmaj':0,'bmin':0,'galpa':0},
-        'template':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits'},
-         'channel':{'fname':'../stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':1,'maxcolor':8},
+fitsfiles={'filename':'chan13co.pdf',
+        'template':{'fname':'chan1_stick_mask_han1_imfit_13co_pix_2_Tmb.fits'},
+         'channel':{'fname':'stick_mask_han1_imfit_13co_pix_2_Tmb.fits','title':r'13CO(1-0)','mincolor':1,'maxcolor':30,'start':31,'end':50,'xpanels':5,'ypanels':4},
            }
 
-fitsfiles={'color':{'fname':'chan1_stick_mask_han1_imfit_13co_pix_2_Tmb.fits','title':'13CO(1-0)','bmaj':0,'bmin':0,'galpa':0},
-        'template':{'fname':'chan1_stick_mask_han1_imfit_13co_pix_2_Tmb.fits'},
-         'channel':{'fname':'stick_mask_han1_imfit_13co_pix_2_Tmb.fits','title':r'13CO(1-0)','mincolor':0,'maxcolor':0},
+fitsfiles={'filename':'chanc18o.pdf',
+        'template':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits'},
+         'channel':{'fname':'../stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':0.5,'maxcolor':8,'start':35,'end':38,'xpanels':2,'ypanels':2},
            }
 
 os.system('cp '+fitsfiles['template']['fname']+' '+'template_'+fitsfiles['template']['fname'])
@@ -33,24 +33,25 @@ def currentvel(hdulistheader,currentchannel):
     vdelt= hdulistheader['CDELT3']
     return (vref + (currentchannel - 1) * vdelt)/1.e3
 
-ypanels=5
-xpanels=5
+xpanels=fitsfiles['channel']['xpanels']
+ypanels=fitsfiles['channel']['ypanels']
 zoomxcenter = 84.16327978
 zoomycenter = -6.301987814
 zoomwid = 0.4
 zoomhei = 0.4
 
-firstchannelstart=31
-lastchannel=55
+firstchannelstart=fitsfiles['channel']['start']
+lastchannel=fitsfiles['channel']['end']
 
 for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
 
     channelstart=startchan # start from which channel, note the different starting index. tbd
     currentchannel=channelstart
-    pdfname='chanc18o'+str(startchan)+'.pdf'
-    pdfname='chan13co'+str(startchan)+'.pdf'
+    pdfname=fitsfiles['filename']
     
     fig=plt.figure(figsize=(3*xpanels*1.1*(zoomwid/(zoomwid+zoomhei))*10.,3*ypanels/1.1*(zoomhei/(zoomwid+zoomhei))*10.))
+    mincolor = fitsfiles['channel']['mincolor']
+    maxcolor = fitsfiles['channel']['maxcolor']
     for j in range(0,ypanels): # this order first follows row
         for i in range(0,xpanels):
             templatedata[0,0,:,:]=channeldata[0,currentchannel-1,:,:]
@@ -59,15 +60,8 @@ for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
             subpos=[0.1+0.8/xpanels*i,0.1+0.9/ypanels*(ypanels-1-j),0.8/xpanels,0.9/ypanels]
             ff = aplpy.FITSFigure('template_channel.fits',figure=fig,subplot=subpos)
             ff.set_theme('publication')
-            mincolor = fitsfiles['channel']['mincolor']
-            maxcolor = fitsfiles['channel']['maxcolor']
-            if maxcolor != 0: 
-                ff.show_colorscale(vmin=mincolor,vmax=maxcolor,cmap='gray_r',stretch='linear')
-                if j == 1: 
-                    ff.show_regions('stickrings.reg')
-            else:
-                ff.show_colorscale(vmin=2,pmax=99.75,cmap='gray_r',stretch='power',exponent=2)
-                ff.show_regions('stickrings.reg')
+            ff.show_colorscale(vmin=mincolor,vmax=maxcolor,cmap='gray_r',stretch='linear')
+            ff.show_regions('stickrings.reg')
             ff.recenter(zoomxcenter,zoomycenter,width=zoomwid,height=zoomhei) 
             ff.tick_labels.set_yformat('dd.d')
             ff.tick_labels.set_xformat('dd.d')
@@ -82,19 +76,19 @@ for startchan in range(firstchannelstart,lastchannel,ypanels*xpanels):
                 ff.hide_ytick_labels()
             currentchannel = currentchannel + 1
             os.system('rm template_channel.fits')
-#    ax1 = fig.add_axes([0.92,0.7,0.01,0.9/ypanels])
-#    cmap = mpl.cm.afmhot
-#    norm = mpl.colors.Normalize(vmin=mincolor, vmax=maxcolor)
+    ax1 = fig.add_axes([0.9,0.1,0.01,0.9])
+    cmap = mpl.cm.gray_r
+    norm = mpl.colors.Normalize(vmin=mincolor, vmax=maxcolor)
 #    norm = mpl.colors.PowerNorm(gamma=0.5,vmin=mincolor, vmax=maxcolor)
-#    cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical')#,ticks=colorticks)
+    cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical')#,ticks=colorticks)
     
     # close and save file
     fig.canvas.draw()
     os.system('rm '+pdfname)
-    #plt.savefig(pdfname)
     plt.savefig(pdfname,bbox_inches='tight')
     plt.close(fig)
     os.system('open '+pdfname)
+    os.system('cp '+pdfname+' ~/GoogleDrive/2020/StickPaper/')
 
 templatehdulist.close()
 channelhdulist.close()

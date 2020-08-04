@@ -11,44 +11,44 @@ rc('text', usetex=True)
 font = {'weight' : 'normal','size':50,'family':'sans-serif','sans-serif':['Helvetica']}
 rc('font', **font)
 
-fitsfiles4={
-        'template':{'fname':'chan1_Simul_30062020ccut_c18o.fits'},
-         'channel':{'fname':'Simul_30062020ccut_c18o.fits','title':r'$\rm MRCOL,\alpha=-80^\circ,C^{18}O$','mincolor':0,'maxcolor':8,'chan1':17,'chan2':22},
-           }
-
-fitsfiles6={
-        'template':{'fname':'chan1_Simul_30062020ccut_13co_noisy.fits'},
-         'channel':{'fname':'Simul_30062020ccut_13co_noisy.fits','title':r'$\rm MRCOL,\alpha=-80^\circ,^{13}CO,noise$','mincolor':0,'maxcolor':10,'chan1':17,'chan2':22},
-           }
-
-fitsfiles5={
-        'template':{'fname':'chan1_Simul_30062020ccut_c18o_noisy.fits'},
-         'channel':{'fname':'Simul_30062020ccut_c18o_noisy.fits','title':r'$\rm MRCOL,\alpha=-80^\circ,C^{18}O,noise$','mincolor':0,'maxcolor':8,'chan1':17,'chan2':22},
-           }
-
-fitsfiles7={
-        'template':{'fname':'chan1_simc2rho0p7_-50ccut_c18o.fits'},
-         'channel':{'fname':'simc2rho0p7_-50ccut_c18o.fits','title':r'$\rm MRCOL_{\rho_0=0.7},\alpha=-50^\circ,C^{18}O$','mincolor':0,'maxcolor':8,'chan1':22,'chan2':27},
-           }
-
-fitsfiles8={
-        'template':{'fname':'chan1_simc2rho0p7_-50ccut_c18o_noisy.fits'},
-         'channel':{'fname':'simc2rho0p7_-50ccut_c18o_noisy.fits','title':r'$\rm MRCOL_{\rho_0=0.7},\alpha=-50^\circ,C^{18}O,noise$','mincolor':0,'maxcolor':8,'chan1':22,'chan2':27},
-           }
-
 fitsfiles1={
         'template':{'fname':'chan1_simc2s0p5_-30ccut_c18o.fits'},
-         'channel':{'fname':'simc2s0p5_-30ccut_c18o.fits','title':r'$\rm MRCOL,\alpha=-30^\circ,C^{18}O$','mincolor':0,'maxcolor':8,'chan1':28,'chan2':33},
+         'channel':{'fname':'simc2s0p5_-30ccut_c18o.fits','title':r'$\rm MRCOL,\alpha=-30^\circ,C^{18}O$','mincolor':0.5,'maxcolor':8,'chan1':28,'chan2':33},
            }
 
 fitsfiles2={
         'template':{'fname':'chan1_simc2s0p5_-30ccut_c18o_noisy.fits'},
-         'channel':{'fname':'simc2s0p5_-30ccut_c18o_noisy.fits','title':r'$\rm MRCOL,\alpha=-30^\circ,C^{18}O,noise$','mincolor':0,'maxcolor':8,'chan1':28,'chan2':33},
+         'channel':{'fname':'simc2s0p5_-30ccut_c18o_noisy.fits','title':r'$\rm MRCOL,\alpha=-30^\circ,C^{18}O,noise$','mincolor':0.5,'maxcolor':8,'chan1':28,'chan2':33},
            }
 
 fitsfiles3={
         'template':{'fname':'chan1_simc2s0p5_-30ccut_13co_noisy.fits'},
-         'channel':{'fname':'simc2s0p5_-30ccut_13co_noisy.fits','title':r'$\rm MRCOL,\alpha=-30^\circ,^{13}CO,noise$','mincolor':0,'maxcolor':15,'chan1':28,'chan2':33},
+         'channel':{'fname':'simc2s0p5_-30ccut_13co_noisy.fits','title':r'$\rm MRCOL,\alpha=-30^\circ,^{13}CO,noise$','mincolor':1,'maxcolor':30,'chan1':28,'chan2':33},
+           }
+
+fitsfiles4={
+        'template':{'fname':'chan1_Simul_30062020ccut_c18o.fits'},
+         'channel':{'fname':'Simul_30062020ccut_c18o.fits','title':r'$\rm MRCOL,\alpha=-80^\circ,C^{18}O$','mincolor':0.5,'maxcolor':8,'chan1':17,'chan2':22},
+           }
+
+fitsfiles5={
+        'template':{'fname':'chan1_Simul_30062020ccut_c18o_noisy.fits'},
+         'channel':{'fname':'Simul_30062020ccut_c18o_noisy.fits','title':r'$\rm MRCOL,\alpha=-80^\circ,C^{18}O,noise$','mincolor':0.5,'maxcolor':8,'chan1':17,'chan2':22},
+           }
+
+fitsfiles6={
+        'template':{'fname':'chan1_Simul_30062020ccut_13co_noisy.fits'},
+         'channel':{'fname':'Simul_30062020ccut_13co_noisy.fits','title':r'$\rm MRCOL,\alpha=-80^\circ,^{13}CO,noise$','mincolor':1,'maxcolor':30,'chan1':17,'chan2':22},
+           }
+
+fitsfiles7={
+        'template':{'fname':'chan1_simc2rho0p7_-50ccut_c18o.fits'},
+         'channel':{'fname':'simc2rho0p7_-50ccut_c18o.fits','title':r'$\rm MRCOL_{\rho_0=0.7},\alpha=-50^\circ,C^{18}O$','mincolor':0.5,'maxcolor':8,'chan1':22,'chan2':27},
+           }
+
+fitsfiles8={
+        'template':{'fname':'chan1_simc2rho0p7_-50ccut_c18o_noisy.fits'},
+         'channel':{'fname':'simc2rho0p7_-50ccut_c18o_noisy.fits','title':r'$\rm MRCOL_{\rho_0=0.7},\alpha=-50^\circ,C^{18}O,noise$','mincolor':0.5,'maxcolor':8,'chan1':22,'chan2':27},
            }
 
 def currentvel(hdulistheader,currentchannel):
@@ -82,6 +82,8 @@ def chanmap(fitsfiles):
         pdfname=fitsfiles['channel']['fname'].split('.')[0]+'_chanmap.pdf'
         
         fig=plt.figure(figsize=(3*xpanels*1.1*(zoomwid/(zoomwid+zoomhei))*10.,3*ypanels/1.1*(zoomhei/(zoomwid+zoomhei))*10.))
+        mincolor = fitsfiles['channel']['mincolor']
+        maxcolor = fitsfiles['channel']['maxcolor']
         for j in range(0,ypanels): # this order first follows row
             for i in range(0,xpanels):
                 templatedata[0,:,:]=channeldata[currentchannel-1,:,:]
@@ -96,8 +98,6 @@ def chanmap(fitsfiles):
                     ff.scalebar.set_color('black')
                     if fitsfiles['channel']['fname'] == 'simc2s0p5_-30ccut_c18o_noisy.fits': 
                         ff.show_regions('pvcutsim3.reg')
-                mincolor = fitsfiles['channel']['mincolor']
-                maxcolor = fitsfiles['channel']['maxcolor']
                 ff.show_colorscale(vmin=mincolor,vmax=maxcolor,cmap='gray_r',stretch='linear')
     #            ff.recenter(zoomxcenter,zoomycenter,width=zoomwid,height=zoomhei) 
     #            if j == 1: 
@@ -116,19 +116,19 @@ def chanmap(fitsfiles):
                 currentchannel = currentchannel + 1
                 os.system('rm template_channel.fits')
         fig.suptitle(fitsfiles['channel']['title'],y=1.03)
-    #    ax1 = fig.add_axes([0.92,0.7,0.01,0.9/ypanels])
-    #    cmap = mpl.cm.afmhot
-    #    norm = mpl.colors.Normalize(vmin=mincolor, vmax=maxcolor)
-    #    norm = mpl.colors.PowerNorm(gamma=0.5,vmin=mincolor, vmax=maxcolor)
-    #    cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical')#,ticks=colorticks)
+        ax1 = fig.add_axes([0.9,0.1,0.01,0.9])
+        cmap = mpl.cm.gray_r
+        norm = mpl.colors.Normalize(vmin=mincolor, vmax=maxcolor)
+        #norm = mpl.colors.PowerNorm(gamma=0.5,vmin=mincolor, vmax=maxcolor)
+        cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical')#,ticks=colorticks)
         
         # close and save file
         fig.canvas.draw()
         os.system('rm '+pdfname)
-        #plt.savefig(pdfname)
         plt.savefig(pdfname,bbox_inches='tight')
         plt.close(fig)
         os.system('open '+pdfname)
+        os.system('cp '+pdfname+' ~/GoogleDrive/2020/StickPaper/')
     
     templatehdulist.close()
     channelhdulist.close()
