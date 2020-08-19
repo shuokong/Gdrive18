@@ -15,13 +15,13 @@ zoomwid = 0.4
 zoomhei = 0.4
 fitsfiles={
    'panel1':{
-      'color':{'fname':r'../abun18tex.fits','hdulistnum':0,'title':r'$\rm [C^{18}O]$','colorscale':'gray','mincolor':5.e-8,'maxcolor':5.e-7,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../abun18tex.fits','hdulistnum':0,'title':r'$\rm [C^{18}O/H]~(T_{\rm ex})$','colorscale':'gray','mincolor':5.e-8,'maxcolor':5.e-7,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
         'file1':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','beamcolor':'red','color':'red','levels':1.e22*np.array([1.4,2.8,4.2]),'bmaj':None,'bmin':None,'pa':None},
                },
              },
    'panel2':{
-      'color':{'fname':r'../abun18tdust.fits','hdulistnum':0,'title':r'','colorscale':'gray','mincolor':5.e-8,'maxcolor':5.e-7,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../abun18tdust.fits','hdulistnum':0,'title':r'$\rm [C^{18}O/H]~(T_d)$','colorscale':'gray','mincolor':5.e-8,'maxcolor':5.e-7,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
         'file1':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','beamcolor':'red','color':'red','levels':1.e22*np.array([1.4,2.8,4.2]),'bmaj':None,'bmin':None,'pa':None},
                },
@@ -48,7 +48,7 @@ for j in range(0,ypanels):
         hei = fitsfiles['panel'+str(panelnum)]['color']['hei']
         ff.recenter(xcenter,ycenter,width=wid,height=hei) 
         ff.set_theme('publication')
-        #ff.set_system_latex(True)
+        ff.set_system_latex(True)
         if fitsfiles['panel'+str(panelnum)]['color']['mincolor'] == None:
             print 'setting color range to user input pmin pmax'
             pmincolor = fitsfiles['panel'+str(panelnum)]['color']['pmincolor']
@@ -73,7 +73,7 @@ for j in range(0,ypanels):
             ff.show_regions('stick_two_parts.reg')
         else: 
             ff.show_regions('stick_two_parts.reg')
-            ff.show_regions('lanecores_aroundstick_noname.reg')
+            ff.show_regions('lanecores_aroundstick.reg')
         if panelnum == xpanels*ypanels:
 #            ff.show_rectangles(zoomxcenter,zoomycenter,zoomwid,zoomhei,edgecolor='y',linestyle='dashed',linewidth=3) 
             ff.add_scalebar(0.143,corner='bottom left',pad=0) # degree for 1 pc at 400 pc
@@ -91,7 +91,7 @@ for j in range(0,ypanels):
             ff.add_scalebar(0.143,corner='bottom left') # degree for 1 pc at 400 pc
             ff.scalebar.set_label('1 pc')
             ff.scalebar.set_color('black')
-#        ff.set_title(fitsfiles['panel'+str(panelnum)]['color']['title'])
+        ff.set_title(fitsfiles['panel'+str(panelnum)]['color']['title'])
         ff.add_label(xcenter + 0.9 * wid / 2.,ycenter + 0.9 * hei / 2.,'('+lletter[panelnum-1]+')',color='black',horizontalalignment='center')
         if fitsfiles['panel'+str(panelnum)]['color']['bmaj'] is not None:
             print 'plotting beam'
@@ -121,7 +121,7 @@ for j in range(0,ypanels):
 os.system('rm '+pdfname)
 plt.savefig(pdfname,bbox_inches='tight')
 os.system('open '+pdfname)
-os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/imagesSFE'))
+os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/2020/StickPaper/'))
 
 
 

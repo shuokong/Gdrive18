@@ -27,11 +27,11 @@ fitsfiles={
            'panel6':{
                      'color':{'fname':r'Fil1641NE_feathered_350.fits','hdulistnum':0,'title':r'$\rm 350~\mu m$','colorscale':'gist_heat','mincolor':0.0007,'maxcolor':0.018,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel7':{
-                     'color':{'fname':r'Fil1641NE_jcmt_450.fits','hdulistnum':0,'title':r'$\rm 450~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.02,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_jcmt_450.fits','hdulistnum':0,'title':r'$\rm 450~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.02,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel8':{
                      'color':{'fname':r'Fil1641NE_feathered_500.fits','hdulistnum':0,'title':r'$\rm 500~\mu m$','colorscale':'gist_heat','mincolor':0.0003,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            'panel9':{
-                     'color':{'fname':r'Fil1641NE_jcmt_850.fits','hdulistnum':0,'title':r'$\rm 850~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'linear','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
+                     'color':{'fname':r'Fil1641NE_jcmt_850.fits','hdulistnum':0,'title':r'$\rm 850~\mu m$','colorscale':'gist_heat','mincolor':0,'maxcolor':0.008,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei}},
            }
 
 lletter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -78,6 +78,8 @@ for j in range(0,ypanels):
         ### colorbar for the last panel
         if panelnum == 4:
             ff.show_regions('stick_two_parts.reg')
+        if panelnum == 9:
+            ff.show_regions('lanecores_aroundstick.reg')
         if panelnum == 1:
             ff.show_rectangles(zoomxcenter,zoomycenter,zoomwid,zoomhei,edgecolor='y',linestyle='dashed',linewidth=3) 
             ff.add_scalebar(0.286,corner='bottom right',pad=3) # degree for 2 pc at 400 pc
@@ -121,7 +123,7 @@ for j in range(0,ypanels):
 os.system('rm '+pdfname)
 plt.savefig(pdfname,bbox_inches='tight')
 os.system('open '+pdfname)
-os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/imagesSFE'))
+os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/2020/StickPaper/'))
 
 
 

@@ -13,12 +13,12 @@ rc('font', **font)
 
 fitsfiles={'filename':'chan13co.pdf',
         'template':{'fname':'chan1_stick_mask_han1_imfit_13co_pix_2_Tmb.fits'},
-         'channel':{'fname':'stick_mask_han1_imfit_13co_pix_2_Tmb.fits','title':r'13CO(1-0)','mincolor':1,'maxcolor':30,'start':31,'end':50,'xpanels':5,'ypanels':4},
+         'channel':{'fname':'stick_mask_han1_imfit_13co_pix_2_Tmb.fits','title':r'13CO(1-0)','mincolor':1,'maxcolor':30,'start':31,'end':50,'xpanels':5,'ypanels':4,'zoomx':84.16327978,'zoomy':-6.301987814,'zoomw':0.4,'zoomh':0.4},
            }
 
 fitsfiles={'filename':'chanc18o.pdf',
         'template':{'fname':'chan1_stick_han1_mask_imfit_c18o_pix_2_Tmb.fits'},
-         'channel':{'fname':'../stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':0.5,'maxcolor':8,'start':35,'end':38,'xpanels':2,'ypanels':2},
+         'channel':{'fname':'../stick_han1_mask_imfit_c18o_pix_2_Tmb.fits','title':r'C18O(1-0)','mincolor':0.5,'maxcolor':8,'start':35,'end':38,'xpanels':2,'ypanels':2,'zoomx':84.1278475,'zoomy':-6.2543256,'zoomw':0.2,'zoomh':0.2},
            }
 
 os.system('cp '+fitsfiles['template']['fname']+' '+'template_'+fitsfiles['template']['fname'])
@@ -35,10 +35,10 @@ def currentvel(hdulistheader,currentchannel):
 
 xpanels=fitsfiles['channel']['xpanels']
 ypanels=fitsfiles['channel']['ypanels']
-zoomxcenter = 84.16327978
-zoomycenter = -6.301987814
-zoomwid = 0.4
-zoomhei = 0.4
+zoomxcenter = fitsfiles['channel']['zoomx']
+zoomycenter = fitsfiles['channel']['zoomy']
+zoomwid = fitsfiles['channel']['zoomw']
+zoomhei = fitsfiles['channel']['zoomh']
 
 firstchannelstart=fitsfiles['channel']['start']
 lastchannel=fitsfiles['channel']['end']

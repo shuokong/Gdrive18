@@ -17,13 +17,13 @@ minc = 15
 maxc = 60
 fitsfiles={
    'panel1':{
-      'color':{'fname':r'../tex_on_stick_header.fits','hdulistnum':0,'title':r'${\rm ^{12}CO}~T_{\rm ex}]$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../tex_on_stick_header.fits','hdulistnum':0,'title':r'$T_{\rm ex}({\rm ^{12}CO})$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
         'file1':{'fname':r'carmanro_OrionA_all_spire250_nh_mask_corr_apex.fits','beamcolor':'red','color':'red','levels':1.e22*np.array([1.4,2.8,4.2]),'bmaj':None,'bmin':None,'pa':None},
                },
              },
    'panel2':{
-      'color':{'fname':r'../dustT_on_stick_header.fits','hdulistnum':0,'title':r'${\rm Herschel}~T_d]$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
+      'color':{'fname':r'../dustT_on_stick_header.fits','hdulistnum':0,'title':r'$T_d({\rm Herschel})$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
         'file1':{'fname':r'mom0_n2hp.fits','beamcolor':'magenta','color':'magenta','levels':1.e2*np.arange(7,30,7),'bmaj':24,'bmin':24,'pa':0},
                },
@@ -50,7 +50,7 @@ for j in range(0,ypanels):
         hei = fitsfiles['panel'+str(panelnum)]['color']['hei']
         ff.recenter(xcenter,ycenter,width=wid,height=hei) 
         ff.set_theme('publication')
-        #ff.set_system_latex(True)
+        ff.set_system_latex(True)
         if fitsfiles['panel'+str(panelnum)]['color']['mincolor'] == None:
             print 'setting color range to user input pmin pmax'
             pmincolor = fitsfiles['panel'+str(panelnum)]['color']['pmincolor']
@@ -75,7 +75,7 @@ for j in range(0,ypanels):
             ff.show_regions('stick_two_parts.reg')
         else: 
             ff.show_regions('stick_two_parts.reg')
-            ff.show_regions('lanecores_aroundstick.reg')
+            #ff.show_regions('lanecores_aroundstick.reg')
         if panelnum == xpanels*ypanels:
 #            ff.show_rectangles(zoomxcenter,zoomycenter,zoomwid,zoomhei,edgecolor='y',linestyle='dashed',linewidth=3) 
             ff.add_scalebar(0.143,corner='bottom left',pad=0) # degree for 1 pc at 400 pc
@@ -95,7 +95,7 @@ for j in range(0,ypanels):
             ff.add_scalebar(0.143,corner='bottom left') # degree for 1 pc at 400 pc
             ff.scalebar.set_label('1 pc')
             ff.scalebar.set_color('black')
-#        ff.set_title(fitsfiles['panel'+str(panelnum)]['color']['title'])
+        ff.set_title(fitsfiles['panel'+str(panelnum)]['color']['title'])
         ff.add_label(xcenter + 0.9 * wid / 2.,ycenter + 0.9 * hei / 2.,'('+lletter[panelnum-1]+')',color='black',horizontalalignment='center')
         if fitsfiles['panel'+str(panelnum)]['color']['bmaj'] is not None:
             print 'plotting beam'
@@ -125,7 +125,7 @@ for j in range(0,ypanels):
 os.system('rm '+pdfname)
 plt.savefig(pdfname,bbox_inches='tight')
 os.system('open '+pdfname)
-os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/imagesSFE'))
+os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/2020/StickPaper/'))
 
 
 

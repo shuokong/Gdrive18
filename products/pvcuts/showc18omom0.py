@@ -27,6 +27,7 @@ maxcolor = np.nanmax(hdu1.data)
 ff.show_colorscale(cmap='gray_r', vmin=1, vmax=10, stretch='linear')
 ff.show_regions('pvcutswcs_overlay.reg')
 ff.show_regions('stick_two_parts.reg')
+ff.show_regions('lanecores_aroundstick.reg')
 ff.add_colorbar() 
 ff.axis_labels.set_xtext(r'$\rm RA~(J2000)$')
 ff.axis_labels.set_ytext(r'$\rm Dec~(J2000)$')
@@ -48,6 +49,6 @@ pdfname = 'omc6c18omom0.pdf'
 os.system('rm '+pdfname)
 plt.savefig(pdfname,bbox_inches='tight')
 os.system('open '+pdfname)
-os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/imagesSFE'))
+os.system('cp '+pdfname+os.path.expandvars(' /Users/shuokong/GoogleDrive/2020/StickPaper/'))
 
 
