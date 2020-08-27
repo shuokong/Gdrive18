@@ -79,7 +79,7 @@ for j in range(0,ypanels):
         if panelnum == 4:
             ff.show_regions('stick_two_parts.reg')
         if panelnum == 9:
-            ff.show_regions('lanecores_aroundstick.reg')
+            ff.show_regions('lanecores_aroundstick_big.reg')
         if panelnum == 1:
             ff.show_rectangles(zoomxcenter,zoomycenter,zoomwid,zoomhei,edgecolor='y',linestyle='dashed',linewidth=3) 
             ff.add_scalebar(0.286,corner='bottom right',pad=3) # degree for 2 pc at 400 pc

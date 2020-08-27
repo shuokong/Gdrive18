@@ -1,7 +1,7 @@
 # Region file format: DS9 version 4.1
 global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
 fk5
-box(5:36:20.6301,-6:13:19.664,725.000",120.000",45) # color=blue width=2 font="helvetica 16 normal roman" dash=1
-box(5:36:54.5275,-6:22:13.021,725.000",120.000",45) # color=blue width=2 font="helvetica 16 normal roman" dash=1
-# text(5:36:26.5399,-6:11:14.962) color=blue font="helvetica 30 normal roman" text={Body}
-# text(5:36:59.1548,-6:19:52.716) color=blue font="helvetica 30 normal roman" text={Tail}
+box(5:36:20.6301,-6:13:19.664,725.000",120.000",45) # color=green width=2 font="helvetica 16 normal roman" dash=1
+box(5:36:54.5275,-6:22:13.021,725.000",120.000",45) # color=green width=2 font="helvetica 16 normal roman" dash=1
+# text(5:36:26.5399,-6:11:14.962) color=green font="helvetica 30 normal roman" text={Body}
+# text(5:36:59.1548,-6:19:52.716) color=green font="helvetica 30 normal roman" text={Tail}
