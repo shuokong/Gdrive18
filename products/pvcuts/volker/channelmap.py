@@ -60,8 +60,8 @@ ypanels=2
 xpanels=3
 zoomxcenter = 0.1880632
 zoomycenter = 0.1880632
-zoomwid = 0.377
-zoomhei = 0.377
+zoomwid = 0.3
+zoomhei = 0.3
 
 def chanmap(fitsfiles):
 
@@ -99,12 +99,12 @@ def chanmap(fitsfiles):
                     if fitsfiles['channel']['fname'] == 'simc2s0p5_-30ccut_c18o_noisy.fits': 
                         ff.show_regions('pvcutsim3.reg')
                 ff.show_colorscale(vmin=mincolor,vmax=maxcolor,cmap='gray_r',stretch='linear')
-    #            ff.recenter(zoomxcenter,zoomycenter,width=zoomwid,height=zoomhei) 
+                ff.recenter(zoomxcenter,zoomycenter,width=zoomwid,height=zoomhei) 
     #            if j == 1: 
     #                ff.show_regions('stickrings.reg')
                 ff.tick_labels.set_yformat('dd.d')
                 ff.tick_labels.set_xformat('dd.d')
-                beamx = zoomxcenter + 0.8 * zoomwid / 2.
+                beamx = zoomxcenter - 0.8 * zoomwid / 2.
                 beamy = zoomycenter + 0.8 * zoomhei / 2.
                 ff.add_label(beamx,beamy,'{0:.2f}'.format(currentvel(channelhdulist[0].header,currentchannel))+'km/s',color='black',horizontalalignment='center')
     #            if j != ypanels-1:
@@ -136,9 +136,9 @@ def chanmap(fitsfiles):
 
 chanmap(fitsfiles1)
 chanmap(fitsfiles2)
-chanmap(fitsfiles3)
+#chanmap(fitsfiles3)
 chanmap(fitsfiles4)
-chanmap(fitsfiles5)
-chanmap(fitsfiles6)
-chanmap(fitsfiles7)
-chanmap(fitsfiles8)
+#chanmap(fitsfiles5)
+#chanmap(fitsfiles6)
+#chanmap(fitsfiles7)
+#chanmap(fitsfiles8)

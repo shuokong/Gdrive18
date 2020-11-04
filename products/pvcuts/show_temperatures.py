@@ -14,7 +14,7 @@ zoomycenter = -6.301987814
 zoomwid = 0.4
 zoomhei = 0.4
 minc = 15
-maxc = 60
+maxc = 45
 fitsfiles={
    'panel1':{
       'color':{'fname':r'../tex_on_stick_header.fits','hdulistnum':0,'title':r'$T_{\rm ex}({\rm ^{12}CO})$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
@@ -25,7 +25,7 @@ fitsfiles={
    'panel2':{
       'color':{'fname':r'../dustT_on_stick_header.fits','hdulistnum':0,'title':r'$T_d({\rm Herschel})$','colorscale':'gist_heat','mincolor':minc,'maxcolor':maxc,'pmincolor':0.5,'pmaxcolor':99.5,'bmaj':None,'bmin':None,'pa':None,'stretch':'sqrt','xcenter':zoomxcenter,'ycenter':zoomycenter,'wid':zoomwid,'hei':zoomhei},
     'contour':{
-        'file1':{'fname':r'mom0_n2hp.fits','beamcolor':'magenta','color':'magenta','levels':1.e2*np.arange(7,30,7),'bmaj':24,'bmin':24,'pa':0},
+        'file1':{'fname':r'mom0_n2hp.fits','beamcolor':'cyan','color':'cyan','levels':1.e2*np.arange(7,30,7),'bmaj':24,'bmin':24,'pa':0},
                },
              },
            }
@@ -86,7 +86,7 @@ for j in range(0,ypanels):
             #norm = mpl.colors.Normalize(vmin=minc, vmax=maxc)
             #norm = mpl.colors.LogNorm(vmin=minc, vmax=maxc)
             norm = mpl.colors.PowerNorm(gamma=0.5, vmin=minc, vmax=maxc)
-            colorticks = np.array([minc,20,30,40,50,maxc])
+            colorticks = np.arange(minc,maxc+1,10)
             cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cmap,norm=norm,orientation='vertical',ticks=colorticks)
             cb1.ax.set_yticklabels([r'$\rm '+'{:<d}'.format(colorticks[ii])+r'$' for ii in range(len(colorticks))]) # 
             cb1.ax.tick_params(axis='y', direction='out') # 

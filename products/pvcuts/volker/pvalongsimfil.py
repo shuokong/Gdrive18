@@ -1,7 +1,7 @@
 import sys
 import os
 import numpy as np
-name_in = 'stick511_han1_mask_imfit_c18o_pix_2_Tmb.fits'
+name_in = 'vrad_simc2s0p5_-30ccut_C18O_noisy.fits'
 from pvextractor import Path
 #from spectral_cube import SpectralCube
 from pvextractor import extract_pv_slice
@@ -14,19 +14,19 @@ pps = [(231.,237.)]
 
 makepvfits = 1
 
-cutlen = 878./2.
+cutlen = 878./4.142
 cutdeg = 47
 name_outs = []
 if makepvfits == 1:
-    os.system('rm Stickslice.fits')
+    os.system('rm simfilslice.fits')
 for nn,pp in enumerate(pps):
-    name_out = 'Stickslice.fits'
+    name_out = 'simfilslice.fits'
     name_outs.append(name_out)
     if makepvfits == 1:
         pathi = findpath(pp,cutlen,cutdeg)
-        pathi = [(653,684), (333,387)] # directly tell the path
+        pathi = [(242,247), (99,91)] # directly tell the path
         print 'pathi',pathi
-        path1 = Path(pathi, width=30) # 30 pixels, 60 arcsec
+        path1 = Path(pathi, width=15) # 15 pixels, 60 arcsec
         slice1 = extract_pv_slice(name_in, path1)
         slice1.writeto(name_out,overwrite=True) 
 #sys.exit()
@@ -44,24 +44,23 @@ xpanels = 1
 ypanels = 1
 xpanelwidth = 6
 ypanelwidth = 7
-os.system('rm pvStick.pdf')
-pdfname='pvStick.pdf'
+os.system('rm pvsimfil.pdf')
+pdfname='pvsimfil.pdf'
 fig=plt.figure(figsize=(xpanelwidth*xpanels*1.1,ypanelwidth*ypanels))
 plt.subplots_adjust(wspace=0.1,hspace=0.1)
 for nn,name_out in enumerate(name_outs):
     mmap=fits.open(name_out)
     cube=mmap[0].data.T
-    cdelt1=mmap[0].header['cdelt2']/1000. # velocity in km/s
+    cdelt1=mmap[0].header['cdelt2'] # velocity in km/s
     naxis1=mmap[0].header['naxis2']
-    crval1=mmap[0].header['crval2']/1000.
+    crval1=mmap[0].header['crval2']
     crpix1=mmap[0].header['crpix2']
     cdelt2=mmap[0].header['cdelt1']*3600. # position in arcsec
     naxis2=mmap[0].header['naxis1']
     crval2=mmap[0].header['crval1']*3600.
     crpix2=mmap[0].header['crpix1']
-    velticks = np.arange(5.,11.1,1.)
+    velticks = np.arange(-3.,3.,1.)
     velpix = [(ii-crval1)/cdelt1+crpix1 for ii in velticks]
-    print min(velpix),max(velpix) 
     veltickslatex = [r"$"+str(int(ii))+r"$" for ii in velticks]
     posticks = np.arange(0.,851.,50.)
     pospix = [(ii-crval2)/cdelt2+crpix2 for ii in posticks]

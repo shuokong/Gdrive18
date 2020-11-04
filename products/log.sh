@@ -1729,3 +1729,7 @@
     92 2020/07/02 22:22 ls *.reg
     93 2020/07/02 22:22 vim ds9.reg
     94 2020/07/02 22:22 vim pvextractOMC6.py
+     4 2020/10/09 13:07 cd ~/GoogleDrive/c18o/products/
+     5 2020/10/09 13:07 mds9 stick_han1_mask_imfit_c18o_pix_2_Tmb.fits &
+    74 2020/10/19 15:48 cd ..
+    75 2020/10/19 15:48 gits
